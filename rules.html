@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>XFC Rules Page</title>
+    <link href="styles/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body class="bg-dark text-white">
+    <h1 class="visually-hidden">XFC Header</h1>
+    <div class="container">
+      <header class="d-flex flex-wrap py-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+          <span class="fs-4">XFC 2023</span>
+        </a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+              <ul class="navbar-nav">
+                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="schedule.html" class="nav-link">Schedule</a></li>
+                <li class="nav-item"><a href="rules.html" class="nav-link active" aria-current="page">Rules</a></li>
+                <li class="nav-item"><a href="FAQ.html" class="nav-link">FAQs</a></li>
+                <li class="nav-item"><a href="archive.html" class="nav-link">Archive</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
+      <div class="jumbotron bg-dark">
+        <div class="p-5 mb-4 bg-secondary rounded-3">
+          <div class="container p-3 pb-5">
+            <div class="row">
+              <h1 class="display-5 fw-bold">Rules for XFC 2022!</h1>
+              <p class="lead">This is where you read the rules.. ALL OF THEM</p>
+              <hr class="my-4">
+            </div>
+            <div class="row">
+            <div class="accordion accordion-flush" id="accordionFlush">
+              <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                1. Registration
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">See link on website. If problems arise, please contact organizers.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                2. Contest Structure
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                <p class="lead mt-3">Qualifying: March 7 2022</p>
+                <ul class="">
+                  <li>
+                    Qualifying will consist of simple scenarios to prove tha the team supplied 
+                    code works in the environment and can perform simple actions (shoot, turn, accelerate, etc)
+                  </li>
+                  <li>
+                    Will be necessary to qualify prior to the final competition
+                  </li>
+                </ul>
+                <p class="lead mt-3">Final Submission: April 4 2022</p>
+                <ul class="">
+                  <li>
+                    Agents must be in repos as described by 11:59pm (EST)
+                  </li>
+                  <li>
+                    Must also send email to confirm submission of agent / code.
+                  </li>
+                </ul>
+                <p class="lead mt-3">Final Competition: April 9 2022</p>
+                <ul class="">
+                  <li>
+                    Event will be held virtually via Zoom
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                3. Game Environment / Play
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body">
+                We will be using a modified version of the game Asteroid Smashers. Any state information within 
+                the environment can be used; Vehicle posiiton / velocity, Asteroid position / velocity, Projectiles, etc.
+                <br>
+                <p class="lead mt-3">Game Play Environment</p>
+                <a href="https://arcade.academy/examples/asteroid_smashers.html">
+                  <p><u>Find the Original Game Here</u></p>
+                </a>
+                <a href="https://github.com/xfuzzycomp/FuzzyAsteroids">
+                  <p><u>Find the Modified Version Here</u></p>
+                </a>
+                <p class="lead mt-3">Controller Requirements</p>
+                <ul class="">
+                  <li><strong>Requirements</strong>
+                    <ul>
+                      <li>Must inherit from ControllerBase</li>
+                      <li>Must have __init__ defined</li>
+                      <li>Must have actions() method</li>
+                    </ul>
+                  </li>
+                  <li><strong>__init__()</strong>
+                    <ul>
+                      <li>Used for creating controller</li>
+                      <li>One time definition of attributes</li>
+                    </ul>
+                  </li>
+                  <li><strong>action()</strong>
+                    <ul>
+                      <li>"input_data": Dictionary of Data</li>
+                      <li>"ships": ship controller interface</li>
+                    </ul>
+                  </li>
+                </ul>
+                <p class="lead mt-3">Additional Information</p>
+                <p><small>
+                  This competition is focused on encouraging the contribution of open-source assets 
+                  and bolster fuzzy logic development for AI.  The environment and past competiiton repos are 
+                  open source. We recommend you keep your own repo private unitl competition to prevent
+                  "accidental collaboration" for the competition.
+                </small></p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFour">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                4. Submitting Code
+              </button>
+            </h2>
+            <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlush">
+              <div class="accordion-body">
+                Code must be submitted by 12pm (EST), on prescribed dates, by uploading to repo as described in Kickoff.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingFive">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+                5. Prizes
+              </button>
+            </h2>
+            <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlush">
+              <div class="accordion-body">
+                Awards will be given for 1st - 3rd place based on overall team score as determined by scoring criteria.
+                <br>
+                <p class="lead mt-3">Overall score awards</p>
+                <p><small>1st - $100000</small></p>
+                <p><small>2nd - $100000</small></p>
+                <p><small>3rd - $100000</small></p>
+                <p class="lead mt-3">Additional Awards</p>
+                <p><small>Most Explainable Solution - $100000</small></p>
+                <p><small>Most Innovative Solution - $100000</small></p>
+                <p><small>Most Efficient Solution - $100000</small></p>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingSix">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+                6. Disqualification
+              </button>
+            </h2>
+            <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlush">
+              <div class="accordion-body">
+                You may be disqualified from XFC 2023 and forfeit any prizes you may be eligible to receive if we
+                reasonably believe that you have:
+                <br>
+                <p class="lead mt-3">1) Deployed code in bad faith</p>
+                <p><small>It is understood that the code you deploy and claim as your own should be original
+                  or included all pertinent citations and recognition to the original authors. Any content that 
+                  violate the rights of a 3rd party will not be accepted.
+                </small></p>
+                <br>
+                <p class="lead mt-3">2) Alter the game code base without permission</p>
+                <p><small>The structure of the contest is built that you will develop an AI agent to send commands
+                  to the game.  At no time should your code fundamentally alter the game play itself or alter the 
+                  characteristics of the game play arena.
+                </small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+      <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
+  <!-- Section: Social media -->
+  <section
+    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+  >
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-2">
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4 text-center">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Explainable Fuzzy Challenge
+          </h6>
+          <p>
+            Sponsored By:<br> 
+            <strong>Thales</strong><br>
+            <strong>Complex Engineering Systems</strong><br>
+            Web Design: <br>
+            <strong>S.D. King and Co.</strong>
+
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-center">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="about.html" class="text-reset">About</a>
+          </p>
+          <p>
+            <a href="schedule.html" class="text-reset">Schedule</a>
+          </p>
+          <p>
+            <a href="rules.html" class="text-reset">Rules</a>
+          </p>
+          <p>
+            <a href="FAQ.html" class="text-reset">FAQs</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-center">
+          <h6 class="text-uppercase fw-bold mb-4">
+            Contact
+          </h6>
+          <p><i class="fas fa-home me-3"></i> <strong>General </strong>vianajr@mail.uc.edu</p>
+          <p><i class="fas fa-home me-3"></i> <strong>Coding </strong>vianajr@mail.uc.edu</p>
+          <p><i class="fas fa-home me-3"></i> <strong>Website </strong>samking7185@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</footer>
+<!-- Footer -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+</html>
