@@ -216,6 +216,12 @@ svg {
   .margin-bottom-400 {
     margin-bottom: var(--size-400);
   }
+  .margin-top-100 {
+    margin-top: var(--size-100);
+  }
+  .margin-bottom-100 {
+    margin-bottom: var(--size-100);
+  }
   .margin-left-400 {
     margin-left: var(--size-400);
   }
@@ -467,13 +473,8 @@ body {
 
 /* footer navigation */
 
-.footer-nav {
-  columns: 3;
-  gap: clamp(var(--size-200), 30vw, var(--size-900));
-}
-
 .footer-nav a {
-  color: var(--clr-accent-400);
+  color: var(--clr-accent-100);
   text-decoration: none;
 }
 
