@@ -265,6 +265,11 @@ svg {
     gap: 1rem;
   }
 
+  .three-columns {
+    display: grid;
+    gap: 1rem;
+  }
+
   @media (min-width: 50em) {
     .even-columns {
       grid-auto-flow: column;
@@ -272,6 +277,13 @@ svg {
     }
   }
 
+  @media (min-width: 50em) {
+    .three-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-column-gap: 10px;
+    }
+  }
   .vertical-align-center {
     align-items: center;
   }
@@ -445,12 +457,6 @@ body {
   .primary-footer-wrapper {
     grid-template-areas: "sponsors contact nav";
   }
-
-  .primary-footer-logo-social {
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--size-700);
-  }
 }
 
 @media (max-width: 50em) {
@@ -462,12 +468,12 @@ body {
 /* footer navigation */
 
 .footer-nav {
-  columns: 2;
+  columns: 3;
   gap: clamp(var(--size-200), 30vw, var(--size-900));
 }
 
 .footer-nav a {
-  color: var(--clr-neutral-100);
+  color: var(--clr-accent-400);
   text-decoration: none;
 }
 
