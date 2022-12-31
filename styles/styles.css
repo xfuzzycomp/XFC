@@ -389,6 +389,12 @@ body {
   color: var(--clr-accent-400);
 }
 
+.nav-list li a.active-page {
+  color: var(--clr-accent-400);
+  font-weight: var(--fw-semi-bold);
+}
+
+
 @media (max-width: 50em) {
   .primary-navigation {
     display: none;
