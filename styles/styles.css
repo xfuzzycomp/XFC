@@ -263,7 +263,6 @@ svg {
 
   .container-full {
     --padding: 1rem;
-
   }
 
   .even-columns {
@@ -488,5 +487,78 @@ body {
   color: var(--clr-accent-400);
 }
 
+/* components */
+.container-grid-area {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas: " a b c ";
+
+}
+
+.container-grid-one {
+  grid-column: 1;
+}
+.container-grid-two {
+  grid-column: 2;
+}
+.container-grid-three {
+  grid-column: 3;
+}
+.container-grid-four {
+  grid-column: 4;
+  grid-area: c;
+}
+.container-grid-full {
+  grid-column: 1/5;
+  grid-area: a;
+}
+.container-grid-onetwo {
+  display: flex;
+  grid-column: 1/4;
+  align-items: center;
+  justify-content: center;
+  grid-area: b;
+}
+.container-grid-twothree {
+  grid-column: 2/5;
+}
+
+
+@media screen and (max-width: 33em) {
+  .container-grid-area {
+      grid-template-areas:
+      "a a a a"
+      "b b b b"
+      ". c c .";
+  }
+}
+
+@media screen and (min-width: 33em) {
+  .container-grid-area {
+      grid-template-areas:
+      "a a a a"
+      "b b b b"
+      ". c c .";
+  }
+}
+
+@media screen and (min-width: 38em) {
+  .container-grid-area {
+    grid-template-areas:
+    "a a a a"
+    "b b b b"
+    ". c c .";
+}
+}
+
+@media screen and (min-width: 54em) {
+  .container-grid-area {
+    grid-template-areas:
+    "a a a a"
+    "b b b c";
+}
+}
 
 
