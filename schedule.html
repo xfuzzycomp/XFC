@@ -1,223 +1,265 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>XFC Schedule Page</title>
-    <link href="styles/styles.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  </head>
-  <body class="bg-dark text-white">
-    <h1 class="visually-hidden">XFC Header</h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/ico" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>XFC 2023</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body class="bg-neutral-100">
+  <header class="primary-header">
     <div class="container">
-      <header class="d-flex flex-wrap py-3 mb-4 border-bottom justify-content-md-center">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-      
-            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="schedule.html" class="nav-link active" aria-current="page">Schedule</a></li>
-                <li class="nav-item"><a href="rules.html" class="nav-link">Rules</a></li>
-                <li class="nav-item"><a href="FAQ.html" class="nav-link">FAQs</a></li>
-                <li class="nav-item"><a href="seminars.html" class="nav-link">Seminars</a></li>
-              </ul>
-              <a href="https://form.jotform.com/221713975839165" target="_blank">
-                <button class="btn btn-primary btn-lg" type="button">Register Here!</button>
-              </a>
-            </div>
-
-          </div>
+      <div class="nav-wrapper margin:auto">
+        <a href="index.html"><img src="images/XFCtransp.png" alt="Manage"></a>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+          <img class="icon-hamburger" src="images/icon-hamburger.png" alt="" aria-hidden="true">
+          <img class="icon-close" src="images/icon-close.svg" alt="" aria-hidden="true">
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <nav class="primary-navigation" id="primary-navigation">
+          <ul aria-label="Primary" role="list" class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="schedule.html" class="active-page">Schedule</a></li>
+            <li><a href="rules.html">Rules</a></li>
+            <li><a href="FAQ.html">FAQs</a></li>
+            <li><a href="seminars.html">Seminars</a></li>
+          </ul>
         </nav>
-      </header>
+        <a href="index.html" class="button | display-sm-none display-md-inline-flex">Register</a>
+      </div>
     </div>
-
-      <div class="jumbotron bg-dark">
-        <div class="p-5 mb-4 bg-secondary rounded-3">
-          <div class="container pb-5">
-            <div class="row">
-              <h1 class="display-5 fw-bold">Schedule for XFC 2023</h1>
-              <p class="lead">These are the important dates for XFC 2023!</p>
-              <hr class="my-4">
+  </header>
+      
+  <main>
+    <section class="padding-block-500">
+      <div class="container-full bg-primary-400">
+        <div class="padding-round-500">
+          <h1 class="fs-primary-heading fw-bold">
+            Schedule for XFC 2023
+          </h1>
+          <p>
+            These are the important dates for XFC 2023. 
+          </p>
+        </div>
+        <div class="schedule-grid-area padding-round-500">
+          
+          <div class="schedule">
+            <div class="flex">
+              <p>Date</p>
             </div>
-            <div class="row">
-              <table class="table text-white" >
-                <caption>Schedule for 2022/2023 Competition</caption>
-                <thead class="table">
-                  <tr>
-                    <th style="width: 20%" scope="col">Date</th>
-                    <th style="width: 20%" scope="col">Event</th>
-                    <th style="width: 60%" scope="col">Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>8/29/2022</td>
-                    <td>Kick-Off</td>
-                    <td>Kick-off meeting introducing the organizers, competition challenge, timeline, etc.</td>
-                  </tr>
-                  <tr>
-                    <td>9/6/2022</td>
-                    <td>Game Intro</td>
-                    <td>We'll introduce you to the game, Asteroid Smashers, repos, structure, etc.</td>
-                  </tr>
-                  <tr>
-                    <td>9/12/2022</td>
-                    <td>Seminar: Fuzzy Inference System (FIS)</td>
-                    <td>Come learn what this Fuzzy Logic stuff is all about. We'll talk about Fuzzy systems, trees,
-                      terminology, python modules, and everything in between.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>9/26/2022</td>
-                    <td>Seminar: Explainability in Fuzzy Systems</td>
-                    <td>Dr. Scott Dick from the University of Alberta will give his perspective on explainability in AI/Fuzzy systems.</td>
-                  </tr>
-                  <tr>
-                    <td>10/3/2022</td>
-                    <td>Seminar: Genetic Algorithms</td>
-                    <td>Seminar on gradient-free optimization methods (GA, PSO, etc.) and their application to
-                      fuzzy systems.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>10/XX/2022</td>
-                    <td>Seminar: Gradient Descent for Fuzzy Systems</td>
-                    <td>Seminar on gradient descent for fuzzy Systems by Dr. Barnabas Bede.</td>
-                  </tr>
-				  <tr>
-                    <td>10/XX/2022</td>
-                    <td>Seminar: Gradient-based Reinforcement Learning</td>
-                    <td>Seminar on gradient-based reinforcement learning methods for fuzzy Systems by Dr. Barnabas Bede.</td>
-                  </tr>
-                  <tr>
-                    <td>11/07/2022</td>
-                    <td>Competition Intro</td>
-                    <td>Introduction to the competition; rules, scoring, format and beginning work on solutions</td>
-                  </tr>
-                  <tr>
-                    <td>01/17/2023</td>
-                    <td>Spring Semester Kickoff</td>
-                    <td>Welcome back for the spring semester! Optional help / Q&A session</td>
-                  </tr>
-                  <tr>
-                    <td>03/06/2023</td>
-                    <td>Qualifying</td>
-                    <td>Teams must qualify for final competition by having an agent that is able to function within the game environment. Performance is not considered, only integration and code functionality-related aspects.</td>
-                  </tr>
-                  <tr>
-                    <td>03/27/2023</td>
-                    <td>Final Code Submission</td>
-                    <td>Teams must submit all code for final trained agents by 10pm EST.</td>
-                  </tr>
-                  <tr>
-                    <td>03/31/2023</td>
-                    <td>Competition</td>
-                    <td>It's game day! Students will present their work followed by the explainability evaluation and then the competition scenarios!</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="flex">
+              <p>Event</p>
+            </div>
+            <div class="flex">
+              <p>Description</p>
             </div>
           </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>8/29/2022</p>
+            </div>
+            <div class="flex">
+              <p>Kick-Off</p>
+            </div>
+            <div class="flex">
+              <p>Kick-off meeting introducing the organizers, competition challenge, timeline, etc.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>9/6/2022</p>
+            </div>
+            <div class="flex">
+              <p>Game Intro</p>
+            </div>
+            <div class="flex">
+              <p>We'll introduce you to the game, Asteroid Smashers, repos, structure, etc.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>9/12/2022</p>
+            </div>
+            <div class="flex">
+              <p>Seminar: Fuzzy Inference System (FIS)</p>
+            </div>
+            <div class="flex">
+              <p>
+                Come learn what this Fuzzy Logic stuff is all about. We'll talk about Fuzzy systems, 
+                trees, terminology, python modules, and everything in between.
+              </p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>9/26/2022</p>
+            </div>
+            <div class="flex">
+              <p>Seminar: Explainability in Fuzzy Systems</p>
+            </div>
+            <div class="flex">
+              <p>Dr. Scott Dick from the University of Alberta will give his perspective on explainability in AI/Fuzzy systems.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>10/3/2022</p>
+            </div>
+            <div class="flex">
+              <p>Seminar: Genetic Algorithms</p>
+            </div>
+            <div class="flex">
+              <p>Seminar on gradient-free optimization methods (GA, PSO, etc.) and their application to fuzzy systems.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>10/XX/2022</p>
+            </div>
+            <div class="flex">
+              <p>Seminar: Gradient Descent for Fuzzy Systems</p>
+            </div>
+            <div class="flex">
+              <p>Seminar on gradient descent for fuzzy Systems by Dr. Barnabas Bede.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>10/XX/2022</p>
+            </div>
+            <div class="flex">
+              <p>Seminar: Gradient-based Reinforcement Learning</p>
+            </div>
+            <div class="flex">
+              <p>Seminar on gradient-based reinforcement learning methods for fuzzy Systems by Dr. Barnabas Bede.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>11/07/2022</p>
+            </div>
+            <div class="flex">
+              <p>Competition Intro</p>
+            </div>
+            <div class="flex">
+              <p>Introduction to the competition; rules, scoring, format and beginning work on solutions.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>01/03/2023</p>
+            </div>
+            <div class="flex">
+              <p>Spring Semester Kickoff</p>
+            </div>
+            <div class="flex">
+              <p>Introduction to the new Kessler Game and Optional Q&A session</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>03/06/2023</p>
+            </div>
+            <div class="flex">
+              <p>Qualifying</p>
+            </div>
+            <div class="flex">
+              <p>
+                Teams must qualify for final competition by having an agent that is able to function 
+                within the game environment. Performance is not considered, only integration and code 
+                functionality-related aspects.
+              </p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>03/27/2023</p>
+            </div>
+            <div class="flex">
+              <p>Final Code Submission</p>
+            </div>
+            <div class="flex">
+              <p>Teams must submit all code for final trained agents by 10pm EST.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>03/31/2023</p>
+            </div>
+            <div class="flex">
+              <p>Competition</p>
+            </div>
+            <div class="flex">
+              <p>
+                It's game day! Students will present their work followed by the explainability 
+                evaluation and then the competition scenarios!
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
-      <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
-  <!-- Section: Social media -->
-  <section
-    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-  >
-    <!-- Left -->
-    <div class="me-5 d-none d-lg-block">
-      <span>Get connected with us on social networks:</span>
-    </div>
-    <!-- Left -->
+    </section>
 
-    <!-- Right -->
-    <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-google"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-linkedin"></i>
-      </a>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-github"></i>
-      </a>
-    </div>
-    <!-- Right -->
-  </section>
-  <!-- Section: Social media -->
 
-  <!-- Section: Links  -->
-  <section class="">
-    <div class="container text-center text-md-start mt-5">
-      <!-- Grid row -->
-      <div class="row mt-2">
-        <!-- Grid column -->
-        <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4 text-center">
-          <!-- Content -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            <i class="fas fa-gem me-3"></i>Explainable Fuzzy Challenge
-          </h6>
-          <p>
-            Sponsored By:<br> 
-            <strong>Thales</strong><br>
-            <strong>Complex Engineering Systems</strong><br>
-            Web Design: <br>
-            <strong>S.D. King and Co.</strong>
-
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <!-- Grid column -->
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-center">
-          <!-- Links -->
-          <h6 class="text-uppercase fw-bold mb-4">
-            Useful links
-          </h6>
-          <p>
-            <a href="about.html" class="text-reset">About</a>
-          </p>
-          <p>
-            <a href="schedule.html" class="text-reset">Schedule</a>
-          </p>
-          <p>
-            <a href="rules.html" class="text-reset">Rules</a>
-          </p>
-          <p>
-            <a href="FAQ.html" class="text-reset">FAQs</a>
-          </p>
-        </div>
-        <!-- Grid column -->
-
-        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 text-center">
-          <h6 class="text-uppercase fw-bold mb-4">
-            Contact
-          </h6>
-          <p><i class="fas fa-home me-3"></i> <strong>General </strong>samking7185@gmail.com</p>
-          <p><i class="fas fa-home me-3"></i> <strong>Coding </strong>pickerln@mail.uc.edu</p>
-          <p><i class="fas fa-home me-3"></i> <strong>Website </strong>samking7185@gmail.com</p>
-        </div>
+  </main>
+  <footer class="primary-footer | padding-block-700 bg-neutral-900 text-accent-100">
+    <div class="container text-center">
+      <div class="primary-footer-wrapper">
+          <div class="primary-footer-sponsor">
+            <ul class="" aria-label="Footer" role="list">
+              <li class="fw-bold margin-bottom-100">Sponsored By:</li>
+              <li>Thales</li>
+              <li>Complex Engineering Systems</li>
+              <li class="fw-bold margin-top-100 margin-bottom-100">Web Design:</li>
+              <li>S.D. King and Co</li>
+            </ul>
+          </div>
+          <div class="primary-footer-contact">
+            <ul aria-label="Footer" role="list">
+              <li class="fw-bold margin-bottom-100">General Questions</li>
+              <li>samking7185@gmail.com</li>
+              <li class="fw-bold margin-top-100 margin-bottom-100">Coding Questions</li>
+              <li>pickerln@mail.uc.edu</li>
+              <li class="fw-bold margin-top-100 margin-bottom-100">Website Questions</li>
+              <li>samking7185@gmail.com</li>
+            </ul>
+          </div>
+          <div class="primary-footer-nav">
+            <nav class="footer-nav">
+              <ul class="" aria-label="Footer" role="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="FAQ.html">FAQs Us</a></li>
+                <li><a href="seminars.html">Seminars</a></li>
+              </ul>
+            </nav>
+          </div>
       </div>
     </div>
-  </section>
-</footer>
-<!-- Footer -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  </body>
-</html>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+     

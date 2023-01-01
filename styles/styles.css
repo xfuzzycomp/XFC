@@ -205,6 +205,12 @@ svg {
     padding-block: var(--size-500);
 
   }
+
+  .padding-block-400 {
+    padding-block: var(--size-400);
+
+  }
+
   .padding-round-500 {
     padding: var(--size-500);
 
@@ -640,3 +646,48 @@ body {
     "b c c c";
 }
 }
+
+.schedule-grid-area{
+  gap: 1.5rem;
+  padding-block: 1rem;
+  width: min(95%, 70rem);
+  margin-inline: auto;
+}
+
+.schedule {
+  font-size: var(--fs-400);
+  border-radius: 0.5rem;
+}
+
+.schedule:nth-child(1) {
+  grid-area: date;
+}
+.schedule:nth-child(2) {
+  grid-area: event;
+}
+.schedule:nth-child(3) {
+  grid-area: description;
+}
+
+
+@media screen and (max-width: 40em) {
+  .schedule {
+    display: block;
+    margin-bottom: var(--size-300);
+
+  }
+}
+
+
+@media screen and (min-width: 54em) {
+  .schedule {
+    display: grid;
+    grid-template-columns: 1fr 1fr 3fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "date event description";
+    padding: 1rem;
+    }
+
+}
+
