@@ -255,6 +255,20 @@ svg {
     margin-right: var(--size-600);
   }
 
+  .margin-left-800 {
+    margin-left: var(--size-800);
+  }
+  .margin-right-800 {
+    margin-right: var(--size-800);
+  }
+
+  .margin-left-900 {
+    margin-left: var(--size-900);
+  }
+  .margin-right-900 {
+    margin-right: var(--size-900);
+  }
+
   .visually-hidden {
     position: absolute;
     width: 1px;
