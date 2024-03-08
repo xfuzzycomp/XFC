@@ -11,8 +11,9 @@ Make changes on the main branch first. Whenever you're ready, push the changes t
 ________________________________________________________________________________________________________________________________
 
 To preview the changes you need to launch a local server
-
+```
 cd into the work folder
--- python3 -m http.server
-Then in browser
-http://localhost:8000
+python3 -m http.server
+http://localhost:8000 in browser
+```
+(Or whatever port your computer launches in, mine uses 8000)
