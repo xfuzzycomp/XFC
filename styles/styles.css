@@ -231,8 +231,20 @@ svg {
   .margin-top-400 {
     margin-top: var(--size-400);
   }
+  .margin-top-600 {
+    margin-top: var(--size-600);
+  }
+  .margin-top-600 {
+    margin-top: var(--size-600);
+  }
   .margin-bottom-400 {
     margin-bottom: var(--size-400);
+  }
+  .margin-bottom-600 {
+    margin-bottom: var(--size-600);
+  }
+  .margin-bottom-800 {
+    margin-bottom: var(--size-800);
   }
 
   .margin-left-400 {
