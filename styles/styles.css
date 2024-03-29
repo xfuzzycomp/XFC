@@ -641,6 +641,13 @@ body {
   grid-area: c;
 }
 
+.container-image-twothree-aligned {
+  grid-column: 2/5;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  grid-area: c;
+}
 
 @media screen and (max-width: 33em) {
   .container-image-area {
