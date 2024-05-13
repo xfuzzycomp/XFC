@@ -211,6 +211,15 @@ svg {
 
   }
 
+  .padding-block-300 {
+    padding-block: var(--size-300);
+
+  }
+
+  .padding-round-200 {
+    padding: var(--size-200);
+
+  }
   .padding-round-500 {
     padding: var(--size-500);
 
@@ -318,6 +327,7 @@ svg {
     .even-columns {
       grid-auto-flow: column;
       grid-auto-columns: 1fr;
+      object-fit: cover;
     }
   }
 
