@@ -640,13 +640,22 @@ body {
 }
 .container-image-onetwo {
   display: flex;
-  grid-column: 1/3;
+  grid-column: 3/5;
   align-items: center;
   justify-content: center;
+
   grid-area: b;
 }
 .container-image-twothree {
   grid-column: 2/5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-area: c;
+}
+
+.container-image-threefour {
+  grid-column: 4/8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -697,6 +706,49 @@ body {
   .container-image-area {
     grid-template-areas:
     "b c c c";
+}
+}
+
+.results-image-area {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 20px;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-areas: " a b c ";
+}
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* or "contain" */
+}
+@media screen and (max-width: 33em) {
+  .results-image-area {
+      grid-template-areas:
+      ". b b ."
+      "c c c c";
+  }
+}
+
+@media screen and (min-width: 33em) {
+  .results-image-area {
+      grid-template-areas:
+      ". b b ."
+      "c c c c";
+  }
+}
+
+@media screen and (min-width: 38em) {
+  .results-image-area {
+    grid-template-areas:
+    ". b b ."
+    "c c c c";
+}
+}
+
+@media screen and (min-width: 54em) {
+  .results-image-area {
+    grid-template-areas:
+    "a b b c c c c";
 }
 }
 
