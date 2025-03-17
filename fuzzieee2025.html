@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/ico" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Explanable Fuzzy Challenge - About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body class="bg-neutral-100">
+  <header class="primary-header">
+    <div class="container">
+      <div class="nav-wrapper margin:auto">
+        <a href="index.html"><img src="images/XFCtransp.png" alt="Manage"></a>
+        <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+          <img class="icon-hamburger" src="images/icon-hamburger.png" alt="" aria-hidden="true">
+          <img class="icon-close" src="images/icon-close.svg" alt="" aria-hidden="true">
+          <span class="visually-hidden">Menu</span>
+        </button>
+        <nav class="primary-navigation" id="primary-navigation">
+          <ul aria-label="Primary" role="list" class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="rules.html">Rules</a></li>
+            <li><a href="FAQ.html">FAQs</a></li>
+            <li><a href="seminars.html">Seminars</a></li>
+            <li><a href="ship_sprites.html">Ship Sprites</a></li>
+
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+    
+  <main>
+    <section class="padding-block-500">
+      <div class="container-full bg-primary-400">
+        <div class="padding-round-500">
+          <h1 class="fs-primary-heading fw-bold">
+            FUZZ-IEEE 2025
+          </h1>
+          <p>
+            This year in addition to the normal XFC competition, we'll be holding an additional competition at the 2025 FUZZ-IEEE conference in Reims, France. 
+            The competition will be slightly different from XFC in that it will both be a pure competition with no seminars/guidance from organizers and it will exclusively focus on performance of the AI agents in playing the game. Currently explainability will not be a focus of the FUZZ-IEEE competition simply due to the time constraints and efforts in manually judging the results. 
+            <br>
+            <br>
+            Register today and get started on making an AI agent to play Kessler!
+          </p>
+          <div class="text-center margin-top-600 margin-bottom-400">
+            <a href="https://form.jotform.com/250756131277154"  class="button | display-sm-none display-md-inline-flex">Register for FUZZ-IEEE 2025 Competition</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="padding-block-500">
+      <div class="container-full bg-primary-400">
+        <div class="padding-round-500">
+          <h1 class="fs-secondary-heading fw-bold">
+            Schedule for FUZZ-IEEE 2025
+          </h1>
+          <p>
+            These are the important dates for FUZZ-IEEE 2025. 
+          </p>
+        </div>
+        <div class="schedule-grid-area padding-round-500">
+          
+          <div class="schedule">
+            <div class="flex">
+              <p>Date</p>
+            </div>
+            <div class="flex">
+              <p>Event</p>
+            </div>
+            <div class="flex">
+              <p>Description</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>27 June 2025</p>
+            </div>
+            <div class="flex">
+              <p>AI agent submission</p>
+            </div>
+            <div class="flex">
+              <p>AI agents developed for playing the Kessler python game are due to organizers. They must be in a repository and shared appropriately.</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>6 July 2025</p>
+            </div>
+            <div class="flex">
+              <p>FUZZ-IEEE Conference Starts</p>
+            </div>
+            <div class="flex">
+              <p>
+                The 2025 FUZZ-IEEE conference begins in Reims, France.
+              </p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>TBD Week of Conference</p>
+            </div>
+            <div class="flex">
+              <p>FUZZ-IEEE Kessler Competition</p>
+            </div>
+            <div class="flex">
+              <p>
+                The Kessler AI competition will be held at FUZZ-IEEE in-person and with hybrid remote if possible (TBD).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="padding-block-500">
+      <div class="container-full bg-primary-400">
+        <div class="padding-round-500">
+          <h1 class="fs-secondary-heading fw-bold">
+            Competition Overview
+          </h1>
+          <p>
+            The Kessler AI competition at FUZZ-IEEE is a competition for any university level students (including graduate students) to develop an AI agent to play the Python game <a href="https://github.com/ThalesGroup/kessler-game/">Kessler</a> which is also on <a href="https://pypi.org/project/kesslergame/">PyPi</a>. Kessler is an open-source Python game based on the classic arcade game "Asteroids" where ships shoot/destroy asteroids to gain score. Kessler is also adversarial in that multile agents can be in the same game simultaneously. The AI agents created will be evaluated in a playoff style competition in a session at FUZZ-IEEE where teams will directly compete against each other in the game for the most points. The playoff will be single elimination with an additional 3rd place game and play-in games/byes if necessary based on the number of entries. Bracket seeding will be determined by evaluation of teams' agents against baseline agents provided by the organizers.
+            <br>
+            <br>
+            The overall motivation for having the competition is to increase student's skills with respect to coding, repository management, machine learning, and project managment. Also we want to both showcase the applicability of Fuzzy towards problems like this, while also getting more exposure for students in actual application development in a fun and rewarding way.
+            <br>
+            <br>
+            This competition is inspired by, and an offshoot of, the Explainable Fuzzy Challenge (XFC) which has been run each year since the spring of 2021. This competition is associated with the North American Fuzzy Information Processing Society conference and is sponsored each year by Thales. The focus of this competition is even more broad in scope than the FUZZ-IEEE Kessler competition as it includes an explainable AI component. XFC has had good participation from the NAFIPS community and a number of universities and was directly responsible for the desire to have similar competitions at WCCI/FUZZ-IEEE. As the focus of XFC is more of an educational experience as opposed to pure competition (as is intended for FUZZ-IEEE), there are a number of recorded seminars on topics relevant for the competition such as Genetic Algorithms, Fuzzy Logic and Fuzzy Inference Systems, Reinforcement Learning, and repository and code management practices. These are available on the <a href="https://www.youtube.com/channel/UCW3X8VqV_t37hFtSgu1Pxqg">XFC YouTube channel</a>.
+            
+            
+          </p>
+        </div>
+
+      </div>
+    </section>
+    
+    <section class="padding-block-500">
+      <div class="container-full bg-primary-400">
+        <div class="padding-round-500">
+          <h1 class="fs-secondary-heading fw-bold">
+            Team Info
+          </h1>
+          <p>
+            There are a few limitations on teams. First is that teams must be comprised of 1-6 university level students. They may be undergraduate or graduate level and any major is welcome. There are a few pre-requisites however as the competition requires competency in repository usage, Python coding, object-oriented programming, and implementation of machine learning algorithms. As the competition is being held during the Summer, we will also accept students that are graduating/will graduate during the Spring/Summer 2025 semesters. 
+            <br>
+            <br>
+            Teams are not required to have an advisor, but are encouraged to do so. They also will need to identify a team lead/spokesperson/main contact that will correspond with the organizers.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="padding-block-500">
+      <div class="container-full bg-primary-400">
+        <div class="padding-round-500">
+          <h1 class="fs-secondary-heading fw-bold">
+            Rules
+          </h1>
+          <p>
+            There are several rules associated with the competition. Some of these are somewhat flexible and are denoted as such, but most are to be adhered to in order to make the competition go smoothly.
+          </p>
+        </div>
+        <div class="wcci-rules-container">
+          <div class="margin-bottom-200">
+            <div class="fw-bold">
+              Rule 1
+            </div>
+            <div>
+              (Somewhat Flexible) The AI agents developed must utilize Fuzzy logic in some way. Fuzzy Inference Systems, Fuzzy Trees, NeuroFuzzy architectures, etc. are all allowed and encouraged. Other architectures and methods may be allowed on a case-by-case basis but require approval from the organizers. This rule exists to encourage usage and application of Fuzzy in relevant (and fun!) problems.
+            </div>
+          </div>
+          <div class="margin-bottom-200">
+            <div class="fw-bold">
+              Rule 2
+            </div>
+            <div>
+              Any machine learning method (or none) is allowed including reinforcement learning, evolutionary/genetic algorithms, and expert knowledge encoding.
+            </div>
+          </div>
+          <div class="margin-bottom-200">
+            <div class="fw-bold">
+              Rule 3
+            </div>
+            <div>
+              Teams must maintain their code in a repository and utilize typical repository management best practices. The repository may be public or private, but must be shared with the organizers before the agent deliverable due date in order for organizers to access the correct version of the code.
+            </div>
+          </div>
+          <div class="margin-bottom-200">
+            <div class="fw-bold">
+              Rule 4
+            </div>
+            <div>
+              The solutions must be able to interface with the game in Python as described in the Controller class in Kessler, but there are no other prescriptions for development style or coding paradigms. E.g. one team may decide to code in pure Python while another may compile some heavy calculations associated with their controller using C++, Cython, mypyc, etc. but then have a Python wrapper to interface with Kessler. Both of these are allowed with the stipulation that all competition teams must resolve all potential compilation issues for target hardware with the organizers well before the final agent delivery date.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="padding-block-500">
+      <div class="container-full bg-primary-400">
+        <div class="padding-round-500">
+          <h1 class="fs-secondary-heading fw-bold">
+            Organizers and Contact Info
+          </h1>
+          <p>
+            These are the main organizers and their respective contact info.
+          </p>
+        </div>
+        <div class="schedule-grid-area padding-round-500">
+          
+          <div class="schedule">
+            <div class="flex">
+              <p>Role</p>
+            </div>
+            <div class="flex">
+              <p>Name</p>
+            </div>
+            <div class="flex">
+              <p>Email</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>Main Organizer</p>
+            </div>
+            <div class="flex">
+              <p>Timothy Arnett</p>
+            </div>
+            <div class="flex">
+              <p>tim.arnett@defense.us.thalesgroup.com</p>
+            </div>
+          </div>
+
+          <div class="schedule">
+            <div class="flex">
+              <p>Website and Misc</p>
+            </div>
+            <div class="flex">
+              <p>Sam King</p>
+            </div>
+            <div class="flex">
+              <p>
+                samking7185@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer class="primary-footer | padding-block-700 bg-neutral-900 text-accent-100">
+    <div class="container text-center">
+      <div class="primary-footer-wrapper">
+          <div class="primary-footer-sponsor">
+            <ul class="" aria-label="Footer" role="list">
+              <li class="fw-bold margin-bottom-100">Sponsored By:</li>
+              <li>Thales</li>
+              <li>Complex Engineering Systems</li>
+              <li class="fw-bold margin-top-100 margin-bottom-100">Web Design:</li>
+              <li>S.D. King and Co</li>
+            </ul>
+          </div>
+          <div class="primary-footer-contact">
+            <ul aria-label="Footer" role="list">
+              <li class="fw-bold margin-bottom-100">General Questions</li>
+              <li>samking7185@gmail.com</li>
+              <li class="fw-bold margin-top-100 margin-bottom-100">Coding Questions</li>
+              <li>pickerln@mail.uc.edu</li>
+              <li class="fw-bold margin-top-100 margin-bottom-100">Website Questions</li>
+              <li>samking7185@gmail.com</li>
+            </ul>
+          </div>
+          <div class="primary-footer-nav">
+            <nav class="footer-nav">
+              <ul class="" aria-label="Footer" role="list">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="rules.html">Rules</a></li>
+                <li><a href="FAQ.html">FAQs Us</a></li>
+                <li><a href="seminars.html">Seminars</a></li>
+              </ul>
+            </nav>
+          </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="main.js"></script>
+</body>
+     
