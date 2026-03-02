@@ -1,69 +1,77 @@
+/* ==========================================================
+   styles.css (HUD / High-Tech Theme)
+   Full replacement file
+   ========================================================== */
+
+/* Subtle sci-fi accent fonts (used for headings/nav only) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600&family=Rajdhani:wght@500;600&family=Open+Sans&display=swap');
+
 :root{
-    --clr-accent-400: hsl(12, 88%, 59%);
-    --clr-accent-100: hsl(0, 0%, 100%);
-  
-    --clr-opaque-400: hsla(12, 88%, 59%, 0.5);
+  /* Accent (neon) */
+  --clr-accent-400: hsl(12, 88%, 59%);
+  --clr-accent-100: hsl(0, 0%, 100%);
+  --clr-opaque-400: hsla(12, 88%, 59%, 0.55);
 
-    --clr-primary-400: hsl(208, 7%, 46%);
-  
-    --clr-neutral-100: hsl(210, 11%, 15%);
-    --clr-neutral-900: hsl(0 0% 0%);
-  
-    --ff-primary: "Open Sans", sans-serif;
-  
-    --ff-body: var(--ff-primary);
-    --ff-heading: var(--ff-primary);
-  
-    --fw-regular: 400;
-    --fw-semi-bold: 500;
-    --fw-bold: 700;
-  
-    --fs-300: 0.8125rem;
-    --fs-400: 0.875rem;
-    --fs-500: 0.9375rem;
-    --fs-600: 1rem;
-    --fs-700: 1.875rem;
-    --fs-800: 2.5rem;
-    --fs-900: 3.5rem;
-  
-    --fs-body: var(--fs-400);
-    --fs-primary-heading: var(--fs-800);
-    --fs-secondary-heading: var(--fs-700);
-    --fs-tertiary-heading: var(--fs-600);
-    --fs-nav: var(--fs-300);
-    --fs-button: var(--fs-300);
+  /* Primary panel tone (darker, more space-y) */
+  --clr-primary-400: hsl(215 16% 26%);
 
-    --size-100: 0.25rem;
-    --size-200: 0.5rem;
-    --size-300: 0.75rem;
-    --size-400: 1rem;
-    --size-500: 1.5rem;
-    --size-600: 2rem;
-    --size-700: 3rem;
-    --size-800: 4rem;
-    --size-900: 5rem;
+  /* Background + true black */
+  --clr-neutral-100: hsl(220 22% 8%);
+  --clr-neutral-900: hsl(0 0% 0%);
 
-    --radius-10: 10px;
+  /* Fonts */
+  --ff-primary: "Open Sans", sans-serif;
+  --ff-sci: "Rajdhani", "Open Sans", sans-serif;  /* restrained sci-fi */
+  --ff-sci-strong: "Orbitron", "Rajdhani", sans-serif; /* sparingly */
 
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-sci);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-300: 0.8125rem;
+  --fs-400: 0.875rem;
+  --fs-500: 0.9375rem;
+  --fs-600: 1rem;
+  --fs-700: 1.875rem;
+  --fs-800: 2.5rem;
+  --fs-900: 3.5rem;
+
+  --fs-body: var(--fs-400);
+  --fs-primary-heading: var(--fs-800);
+  --fs-secondary-heading: var(--fs-700);
+  --fs-tertiary-heading: var(--fs-600);
+  --fs-nav: var(--fs-300);
+  --fs-button: var(--fs-300);
+
+  --size-100: 0.25rem;
+  --size-200: 0.5rem;
+  --size-300: 0.75rem;
+  --size-400: 1rem;
+  --size-500: 1.5rem;
+  --size-600: 2rem;
+  --size-700: 3rem;
+  --size-800: 4rem;
+  --size-900: 5rem;
+
+  --radius-10: 10px;
 }
 
 @media (min-width: 50em) {
-    :root {
-      --fs-body: var(--fs-500);
-      --fs-primary-heading: var(--fs-900);
-      --fs-secondary-heading: var(--fs-800);
-  
-      --fs-nav: var(--fs-600);
-    }
+  :root {
+    --fs-body: var(--fs-500);
+    --fs-primary-heading: var(--fs-900);
+    --fs-secondary-heading: var(--fs-800);
+    --fs-nav: var(--fs-600);
   }
-
+}
 
 /* Box sizing rules */
 *,
 *::before,
-*::after {
-  box-sizing: border-box;
-}
+*::after { box-sizing: border-box; }
 
 /* Remove default margin */
 * {
@@ -72,50 +80,65 @@
   font: inherit;
 }
 
-/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+/* Remove list styles */
 ul[role="list"],
-ol[role="list"] {
-  list-style: none;
-}
+ol[role="list"] { list-style: none; }
 
-/* Set core root defaults */
-html:focus-within {
-  scroll-behavior: smooth;
-}
+/* Root defaults */
+html:focus-within { scroll-behavior: smooth; }
 
-html,
-body {
-    height: 100%;
-}
+html, body { height: 100%; }
 
-/* Set core body defaults */
+/* Body defaults */
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  color: var(--clr-accent-100);
+
+  /* “Space field” background */
+  background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(255,255,255,0.06), rgba(255,255,255,0) 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(255,255,255,0.04), rgba(255,255,255,0) 55%),
+    radial-gradient(700px 400px at 60% 110%, rgba(255,255,255,0.03), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, hsl(220 25% 8%), hsl(225 22% 6%));
 }
 
-/* A elements that don't have a class get default styles */
-a:not([class]) {
-  text-decoration-skip-ink: auto;
+/* subtle stars + scanlines */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(1px 1px at 12% 24%, rgba(255,255,255,0.18), rgba(255,255,255,0)),
+    radial-gradient(1px 1px at 75% 18%, rgba(255,255,255,0.14), rgba(255,255,255,0)),
+    radial-gradient(1px 1px at 42% 66%, rgba(255,255,255,0.12), rgba(255,255,255,0)),
+    radial-gradient(1px 1px at 88% 72%, rgba(255,255,255,0.10), rgba(255,255,255,0)),
+    radial-gradient(1px 1px at 30% 88%, rgba(255,255,255,0.10), rgba(255,255,255,0)),
+    repeating-linear-gradient(
+      180deg,
+      rgba(255,255,255,0.028),
+      rgba(255,255,255,0.028) 1px,
+      rgba(0,0,0,0) 6px,
+      rgba(0,0,0,0) 10px
+    );
+  opacity: 0.55;
+  mix-blend-mode: screen;
 }
 
-/* Make images easier to work with */
-img,
-picture,
-svg {
-  max-width: 100%;
-  display: block;
-}
+/* Links */
+a:not([class]) { text-decoration-skip-ink: auto; }
 
-/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+/* Images */
+img, picture, svg { max-width: 100%; display: block; }
+
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
+  html:focus-within { scroll-behavior: auto; }
+  * ,*::before,*::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -123,336 +146,309 @@ svg {
   }
 }
 
-/* Utility classes */
+/* ==========================================================
+   Utility classes
+   ========================================================== */
+.text-primary-400 { color: var(--clr-primary-400); }
+.text-accent-400 { color: var(--clr-accent-400); }
+.text-accent-100 { color: var(--clr-accent-100); }
+.text-neutral-100 { color: var(--clr-neutral-100); }
+.text-neutral-900 { color: var(--clr-neutral-900); }
 
-.text-primary-400 {
-    color: var(--clr-primary-400);
-  }
-  .text-accent-400 {
-    color: var(--clr-accent-400);
-  }
-  .text-accent-100 {
-    color: var(--clr-accent-100);
-  }
-  .text-neutral-100 {
-    color: var(--clr-neutral-100);
-  }
-  .text-neutral-900 {
-    color: var(--clr-neutral-900);
-  }
-  
-  .bg-primary-400 {
-    background-color: var(--clr-primary-400);
-  }
-  .bg-accent-400 {
-    background-color: var(--clr-accent-400);
-  }
-  .bg-accent-100 {
-    background-color: var(--clr-accent-100);
-  }
-  .bg-neutral-100 {
-    background-color: var(--clr-neutral-100);
-  }
-  .bg-neutral-900 {
-    background-color: var(--clr-neutral-900);
-  }
-  
-  .fw-bold {
-    font-weight: var(--fw-bold);
-  }
-  .fw-semi-bold {
-    font-weight: var(--fw-semi-bold);
-  }
-  .fw-regular {
-    font-weight: var(--fw-regular);
-  }
-  
-  .fs-primary-heading {
-    font-size: var(--fs-primary-heading);
-  }
-  .fs-secondary-heading {
-    font-size: var(--fs-secondary-heading);
-  }
-  .fs-tertiary-heading {
-    font-size: var(--fs-tertiary-heading);
-  }
+.bg-primary-400 { background-color: var(--clr-primary-400); }
+.bg-accent-400 { background-color: var(--clr-accent-400); }
+.bg-accent-100 { background-color: var(--clr-accent-100); }
+.bg-neutral-100 { background-color: var(--clr-neutral-100); }
+.bg-neutral-900 { background-color: var(--clr-neutral-900); }
 
-  .fs-300 {
-    font-size: var(--fs-300);
-  }
-  .fs-400 {
-    font-size: var(--fs-400);
-  }
-  .fs-500 {
-    font-size: var(--fs-500);
-  }
-  .fs-600 {
-    font-size: var(--fs-600);
-  }
+.fw-bold { font-weight: var(--fw-bold); }
+.fw-semi-bold { font-weight: var(--fw-semi-bold); }
+.fw-regular { font-weight: var(--fw-regular); }
 
-  .padding-block-900 {
-    padding-block: var(--size-900);
-  }
+.fs-primary-heading { font-size: var(--fs-primary-heading); }
+.fs-secondary-heading { font-size: var(--fs-secondary-heading); }
+.fs-tertiary-heading { font-size: var(--fs-tertiary-heading); }
 
-  .radius-100 {
-    border-radius: var(--radius-10);
-  }
-  .padding-block-700 {
-    padding-block: var(--size-700);
-  }
+.fs-300 { font-size: var(--fs-300); }
+.fs-400 { font-size: var(--fs-400); }
+.fs-500 { font-size: var(--fs-500); }
+.fs-600 { font-size: var(--fs-600); }
 
-  .padding-block-500 {
-    padding-block: var(--size-500);
+.padding-block-900 { padding-block: var(--size-900); }
+.padding-block-700 { padding-block: var(--size-700); }
+.padding-block-500 { padding-block: var(--size-500); }
+.padding-block-400 { padding-block: var(--size-400); }
 
-  }
+.radius-100 { border-radius: var(--radius-10); }
 
-  .padding-block-400 {
-    padding-block: var(--size-400);
+.padding-round-500 { padding: var(--size-500); }
+.padding-round-400 { padding: var(--size-400); }
 
-  }
+.margin-top-100 { margin-top: var(--size-100); }
+.margin-bottom-100 { margin-bottom: var(--size-100); }
+.margin-top-200 { margin-top: var(--size-200); }
+.margin-bottom-200 { margin-bottom: var(--size-200); }
+.margin-top-400 { margin-top: var(--size-400); }
+.margin-top-600 { margin-top: var(--size-600); }
+.margin-bottom-400 { margin-bottom: var(--size-400); }
+.margin-bottom-600 { margin-bottom: var(--size-600); }
+.margin-bottom-800 { margin-bottom: var(--size-800); }
 
-  .padding-round-500 {
-    padding: var(--size-500);
+.margin-left-400 { margin-left: var(--size-400); }
+.margin-right-400 { margin-right: var(--size-400); }
+.margin-left-600 { margin-left: var(--size-600); }
+.margin-right-600 { margin-right: var(--size-600); }
+.margin-left-800 { margin-left: var(--size-800); }
+.margin-right-800 { margin-right: var(--size-800); }
+.margin-left-900 { margin-left: var(--size-900); }
+.margin-right-900 { margin-right: var(--size-900); }
 
-  }
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-  .margin-top-100 {
-    margin-top: var(--size-100);
-  }
-  .margin-bottom-100 {
-    margin-bottom: var(--size-100);
-  }
-  .margin-top-200 {
-    margin-top: var(--size-200);
-  }
-  .margin-bottom-200 {
-    margin-bottom: var(--size-200);
-  } 
-  .margin-top-400 {
-    margin-top: var(--size-400);
-  }
-  .margin-top-600 {
-    margin-top: var(--size-600);
-  }
-  .margin-top-600 {
-    margin-top: var(--size-600);
-  }
-  .margin-bottom-400 {
-    margin-bottom: var(--size-400);
-  }
-  .margin-bottom-600 {
-    margin-bottom: var(--size-600);
-  }
-  .margin-bottom-800 {
-    margin-bottom: var(--size-800);
-  }
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+}
 
-  .margin-left-400 {
-    margin-left: var(--size-400);
-  }
-  .margin-right-400 {
-    margin-right: var(--size-400);
-  }
+.container-full { --padding: 1rem; }
 
-  .margin-top-600 {
-    margin-top: var(--size-600);
-  }
-  .margin-bottom-600 {
-    margin-bottom: var(--size-600);
-  }
-  .margin-left-600 {
-    margin-left: var(--size-600);
-  }
-  .margin-right-600 {
-    margin-right: var(--size-600);
-  }
+.even-columns { display: grid; gap: 1rem; }
+.three-columns { display: grid; gap: 1rem; }
 
-  .margin-left-800 {
-    margin-left: var(--size-800);
-  }
-  .margin-right-800 {
-    margin-right: var(--size-800);
-  }
-
-  .margin-left-900 {
-    margin-left: var(--size-900);
-  }
-  .margin-right-900 {
-    margin-right: var(--size-900);
-  }
-
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap; /* added line */
-    border: 0;
-  }
-
-  .container {
-    --max-width: 1110px;
-    --padding: 1rem;
-    width: min(var(--max-width), 100% - (var(--padding) * 2));
-    margin-inline: auto;
-  }
-
-  .container-full {
-    --padding: 1rem;
-  }
-
-  .even-columns {
-    display: grid;
-    gap: 1rem;
-  }
-
+@media (min-width: 50em) {
+  .even-columns { grid-auto-flow: column; grid-auto-columns: 1fr; }
+}
+@media (min-width: 50em) {
   .three-columns {
     display: grid;
-    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-column-gap: 10px;
   }
-
-  @media (min-width: 50em) {
-    .even-columns {
-      grid-auto-flow: column;
-      grid-auto-columns: 1fr;
-    }
-  }
-
-  @media (min-width: 50em) {
-    .three-columns {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      grid-column-gap: 10px;
-    }
-  }
-  .vertical-align-center {
-    align-items: center;
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  /* general styling */
-
-body {
-    font-size: var(--fs-body);
-    font-family: var(--ff-body);
-    color: var(--clr-accent-100);
-  }
-
-  .button {
-    cursor: pointer;
-    text-decoration: none;
-    border: 0;
-    border-radius: 100vmax;
-    padding: 1.25em 2.5em;
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-button);
-    line-height: 1;
-    color: var(--clr-neutral-100);
-    background-color: var(--clr-accent-400);
-    box-shadow: 0 1.125em 1em -1em var(--clr-accent-500);
-  }
-  
-  .button[data-type="inverted"] {
-    background-color: var(--clr-opaque-400);
-    color: var(--clr-accent-400);
-  }
-  
-  .button:hover,
-  .button:focus-visible {
-    background-color: var(--clr-opaque-400);
-  }
-  
-  .button[data-type="inverted"]:hover,
-  .button[data-type="inverted"]:focus-visible {
-    background-color: var(--clr-neutral-100);
-    color: var(--clr-accent-300);
-  }
-  .video-container {
-    overflow: hidden;
-    position: relative;
-    width:100%;
 }
 
-.video-container::after {
-    padding-top: 56.25%;
-    display: block;
-    content: '';
+.vertical-align-center { align-items: center; }
+.text-center { text-align: center; }
+
+/* ==========================================================
+   Global “HUD panel” polish
+   ========================================================== */
+
+/* Make your section panels glossy instead of flat */
+.bg-primary-400{
+  background:
+    radial-gradient(1400px 240px at 12% 0%, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 55%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.14));
+  border-top: 1px solid rgba(255,255,255,0.07);
+  border-bottom: 1px solid rgba(0,0,0,0.34);
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+/* Inner “glass plate” */
+.padding-round-500,
+.padding-round-400{
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 18px 60px rgba(0,0,0,0.34),
+    0 0 0 1px rgba(255,255,255,0.03) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-.primary-header {
-  padding-top: var(--size-700);
+/* Subtle section separators (reads like system modules) */
+section + section{
+  position: relative;
+}
+section + section::before{
+  content:"";
+  display:block;
+  height: 1px;
+  margin: 0 auto var(--size-500);
+  width: min(92%, 1100px);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);
 }
 
-.nav-wrapper {
-  display: flex;
-  justify-content: space-between;
+/* Typography: sci-fi influence only where it counts */
+h1, h2, h3,
+.fs-primary-heading, .fs-secondary-heading, .fs-tertiary-heading{
+  font-family: var(--ff-heading);
+  letter-spacing: 0.01em;
+}
+.fs-primary-heading{
+  font-family: var(--ff-sci-strong);
+  letter-spacing: 0.02em;
+}
+h1, h2{
+  text-shadow:
+    0 10px 26px rgba(0,0,0,0.50),
+    0 0 18px rgba(255,255,255,0.06);
+}
+
+/* ==========================================================
+   Buttons (neon control)
+   ========================================================== */
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 100vmax;
+  padding: 1.15em 2.2em;
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-button);
+  line-height: 1.1;
+  color: var(--clr-neutral-100);
+  background-color: var(--clr-accent-400);
+
+  box-shadow:
+    0 16px 46px rgba(0,0,0,0.42),
+    0 0 26px var(--clr-opaque-400);
+
+  transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
+}
+
+.button[data-type="inverted"] {
+  background-color: rgba(255,255,255,0.08);
+  color: var(--clr-accent-100);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.button:hover,
+.button:focus-visible{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow:
+    0 22px 66px rgba(0,0,0,0.50),
+    0 0 36px var(--clr-opaque-400);
+}
+
+.button[data-type="inverted"]:hover,
+.button[data-type="inverted"]:focus-visible{
+  background-color: rgba(255,255,255,0.12);
+}
+
+/* Fix: CTA button wrapping weirdly on mobile */
+.text-center .button{
+  display: inline-flex;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  width: min(100%, 22rem);
+  margin-inline: auto;
+  padding: 1rem 1.75rem;
+  font-size: var(--fs-400);
+  line-height: 1.3;
 }
 
-.mobile-nav-toggle {
-  display: none;
+/* ==========================================================
+   Video embed helper
+   ========================================================== */
+.video-container { overflow: hidden; position: relative; width:100%; }
+.video-container::after { padding-top: 56.25%; display: block; content: ''; }
+.video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+/* ==========================================================
+   Header / Nav (HUD bar)
+   ========================================================== */
+.primary-header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+
+  padding-top: var(--size-400);
+  padding-bottom: var(--size-400);
+
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.20));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 18px 44px rgba(0,0,0,0.42);
 }
+
+/* tiny neon rail */
+.primary-header::after{
+  content:"";
+  position:absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--clr-opaque-400), transparent);
+  box-shadow: 0 0 18px var(--clr-opaque-400);
+  opacity: 0.55;
+  pointer-events:none;
+}
+
+.nav-wrapper { display: flex; justify-content: space-between; align-items: center; }
+.mobile-nav-toggle { display: none; }
 
 .nav-list {
   font-size: var(--fs-nav);
-}
-
-.nav-list {
   display: flex;
   gap: clamp(var(--size-400), 5vw, var(--size-700));
   font-weight: var(--fw-semi-bold);
+  font-family: var(--ff-sci);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .nav-list a {
   text-decoration: none;
-  color: var(--clr-primary-400);
+  color: rgba(255,255,255,0.72);
 }
 
 .nav-list a:hover,
 .nav-list a:focus {
-  color: var(--clr-accent-400);
+  color: rgba(255,255,255,0.92);
+  text-shadow:
+    0 0 14px rgba(255,255,255,0.08),
+    0 0 20px var(--clr-opaque-400);
 }
 
 .nav-list li a.active-page {
-  color: var(--clr-accent-400);
+  color: rgba(255,255,255,0.96);
+  text-shadow: 0 0 20px var(--clr-opaque-400);
   font-weight: var(--fw-semi-bold);
 }
-
 
 @media (max-width: 50em) {
   .primary-navigation {
     display: none;
-
     position: fixed;
     padding: var(--size-700);
     inset: 7rem var(--size-400) auto;
     max-width: 25rem;
     margin-left: auto;
-    background: var(--clr-neutral-100);
-    border-radius: var(--size-100);
-    box-shadow: 0 0 0.75em rgb(0, 0, 0, 0.05);
+
+    /* HUD dropdown panel */
+    background:
+      radial-gradient(900px 180px at 15% 0%, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 60%),
+      linear-gradient(180deg, rgba(0,0,0,0.62), rgba(0,0,0,0.30));
+    border-radius: var(--size-200);
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow:
+      0 24px 70px rgba(0,0,0,0.55),
+      0 0 0 1px rgba(255,255,255,0.04) inset;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
   }
 
   .primary-header[data-overlay]::before {
     content: "";
     position: fixed;
     inset: 0;
-    /* height: 100vh; */
-    background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8));
+    background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.85));
   }
 
   .nav-list {
@@ -462,9 +458,7 @@ body {
     font-weight: var(--fw-bold);
   }
 
-  .primary-navigation[data-visible] {
-    display: block;
-  }
+  .primary-navigation[data-visible] { display: block; }
 
   .mobile-nav-toggle {
     display: block;
@@ -477,17 +471,13 @@ body {
     padding: 0.5em;
   }
 
-  .mobile-nav-toggle .icon-close {
-    display: none;
-  }
+  .mobile-nav-toggle .icon-close { display: none; }
 }
 
-
-/* footer */
-
-.primary-footer {
-  --logo-color: var(--clr-neutral-100);
-}
+/* ==========================================================
+   Footer
+   ========================================================== */
+.primary-footer { --logo-color: var(--clr-neutral-100); }
 
 .primary-footer-wrapper {
   display: grid;
@@ -498,61 +488,40 @@ body {
     "nav";
 }
 
-
-.primary-footer-nav {
-  grid-area: nav;
-}
+.primary-footer-nav { grid-area: nav; }
 
 @media (min-width: 50em) {
-  .primary-footer-wrapper {
-    grid-template-areas: "sponsors contact nav";
-  }
+  .primary-footer-wrapper { grid-template-areas: "sponsors contact nav"; }
 }
-
 @media (max-width: 50em) {
-  .primary-footer-wrapper > * {
-    margin-inline: auto;
-  }
+  .primary-footer-wrapper > * { margin-inline: auto; }
 }
 
 /* footer navigation */
-
 .footer-nav a {
   color: var(--clr-accent-100);
   text-decoration: none;
 }
-
 .footer-nav a:is(:hover, :focus) {
   color: var(--clr-accent-400);
+  text-shadow: 0 0 18px var(--clr-opaque-400);
 }
 
-/* components */
+/* ==========================================================
+   Components: grid areas (kept from original)
+   ========================================================== */
 .container-grid-area {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   grid-auto-rows: minmax(100px, auto);
   grid-template-areas: " a b c ";
-
 }
-
-.container-grid-one {
-  grid-column: 1;
-}
-.container-grid-two {
-  grid-column: 2;
-}
-.container-grid-three {
-  grid-column: 3;
-}
-.container-grid-four {
-  grid-column: 4;
-  grid-area: c;
-}
-.container-grid-full {
-  grid-column: 1/5;
-  grid-area: a;
-}
+.container-grid-one { grid-column: 1; }
+.container-grid-two { grid-column: 2; }
+.container-grid-three { grid-column: 3; }
+.container-grid-four { grid-column: 4; grid-area: c; }
+.container-grid-full { grid-column: 1/5; grid-area: a; }
 .container-grid-onetwo {
   display: flex;
   grid-column: 1/4;
@@ -560,44 +529,38 @@ body {
   justify-content: center;
   grid-area: b;
 }
-.container-grid-twothree {
-  grid-column: 2/5;
-}
-
+.container-grid-twothree { grid-column: 2/5; }
 
 @media screen and (max-width: 33em) {
   .container-grid-area {
-      grid-template-areas:
+    grid-template-areas:
       "a a a a"
       "b b b b"
       ". c c .";
   }
 }
-
 @media screen and (min-width: 33em) {
   .container-grid-area {
-      grid-template-areas:
+    grid-template-areas:
       "a a a a"
       "b b b b"
       ". c c .";
   }
 }
-
 @media screen and (min-width: 38em) {
   .container-grid-area {
     grid-template-areas:
-    "a a a a"
-    "b b b b"
-    ". c c .";
+      "a a a a"
+      "b b b b"
+      ". c c .";
+  }
 }
-}
-
 @media screen and (min-width: 54em) {
   .container-grid-area {
     grid-template-areas:
-    "a a a a"
-    "b b b c";
-}
+      "a a a a"
+      "b b b c";
+  }
 }
 
 .container-image-area {
@@ -606,27 +569,12 @@ body {
   gap: 20px;
   grid-auto-rows: minmax(100px, auto);
   grid-template-areas: " a b c ";
-
 }
-
-.container-image-one {
-  grid-column: 1;
-  grid-area: b;
-}
-.container-image-two {
-  grid-column: 2;
-}
-.container-image-three {
-  grid-column: 3;
-}
-.container-image-four {
-  grid-column: 4;
-  grid-area: c;
-}
-.container-image-full {
-  grid-column: 1/5;
-  grid-area: a;
-}
+.container-image-one { grid-column: 1; grid-area: b; }
+.container-image-two { grid-column: 2; }
+.container-image-three { grid-column: 3; }
+.container-image-four { grid-column: 4; grid-area: c; }
+.container-image-full { grid-column: 1/5; grid-area: a; }
 .container-image-onetwo {
   display: flex;
   grid-column: 1/4;
@@ -640,7 +588,6 @@ body {
   justify-content: center;
   grid-area: c;
 }
-
 .container-image-twothree-aligned {
   grid-column: 2/5;
   display: flex;
@@ -651,41 +598,35 @@ body {
 
 @media screen and (max-width: 33em) {
   .container-image-area {
-      grid-template-areas:
+    grid-template-areas:
       ". b b ."
       "c c c c";
   }
 }
-
 @media screen and (min-width: 33em) {
   .container-image-area {
-      grid-template-areas:
+    grid-template-areas:
       ". b b ."
       "c c c c";
   }
 }
-
 @media screen and (min-width: 38em) {
   .container-image-area {
     grid-template-areas:
-    ". b b ."
-    "c c c c";
+      ". b b ."
+      "c c c c";
+  }
 }
-}
-
 @media screen and (min-width: 54em) {
-  .container-image-area {
-    grid-template-areas:
-    "b c c c";
-}
+  .container-image-area { grid-template-areas: "b c c c"; }
 }
 
-/* =========================
-   SCHEDULE (CLEAN / SPACE-Y)
-   Replace your current schedule CSS with this whole block
-   ========================= */
+/* ==========================================================
+   Schedule (HUD Control Panel Table)
+   - Desktop: wide 5-column grid
+   - Mobile: labeled cards (not “random vertical blob”)
+   ========================================================== */
 
-/* Wider container so it doesn't wrap early on desktop */
 .schedule-grid-area{
   gap: 0.85rem;
   padding-block: 1.25rem;
@@ -693,108 +634,129 @@ body {
   margin-inline: auto;
 }
 
-/* Row "glass panel" styling */
 .schedule{
+  position: relative;
   font-size: var(--fs-400);
-  border-radius: 0.9rem;
+  border-radius: 1rem;
   padding: 1rem 1.05rem;
 
-  /* Dark glass base (space-y) */
   background:
-    radial-gradient(1200px 220px at 10% 0%, rgba(255,255,255,0.08), rgba(255,255,255,0.02) 60%),
-    linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.08));
+    radial-gradient(1200px 220px at 10% 0%, rgba(255,255,255,0.10), rgba(255,255,255,0.02) 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.26), rgba(0,0,0,0.10));
 
-  border: 1px solid rgba(255,255,255,0.14);
+  border: 1px solid rgba(255,255,255,0.16);
   box-shadow:
-    0 14px 40px rgba(0,0,0,0.28),
+    0 16px 50px rgba(0,0,0,0.34),
     0 0 0 1px rgba(255,255,255,0.04) inset;
 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-/* Subtle zebra (keeps it readable without looking “busy”) */
 .schedule:nth-child(even){
   background:
-    radial-gradient(1200px 220px at 10% 0%, rgba(255,255,255,0.07), rgba(255,255,255,0.02) 60%),
-    linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.06));
+    radial-gradient(1200px 220px at 10% 0%, rgba(255,255,255,0.085), rgba(255,255,255,0.02) 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.22), rgba(0,0,0,0.08));
 }
 
-/* Header row (your first .schedule in HTML) */
+/* Header row */
 .schedule:first-child{
-  position: relative;
-
-  /* Cleaner + more “control panel” */
   background:
-    linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)),
-    linear-gradient(180deg, rgba(0,0,0,0.24), rgba(0,0,0,0.12));
-
-  border: 1px solid rgba(255,255,255,0.18);
+    linear-gradient(90deg, rgba(255,255,255,0.10), rgba(255,255,255,0.02)),
+    linear-gradient(180deg, rgba(0,0,0,0.40), rgba(0,0,0,0.16));
+  border: 1px solid rgba(255,255,255,0.22);
   box-shadow:
-    0 18px 55px rgba(0,0,0,0.35),
-    0 0 0 1px rgba(255,255,255,0.05) inset;
+    0 22px 70px rgba(0,0,0,0.46),
+    0 0 28px var(--clr-opaque-400);
 }
 
-/* Accent “neon rail” on the header */
-.schedule:first-child::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,0.06) inset,
-    0 0 28px rgba(0,0,0,0.0);
+/* Neon rail on header */
+.schedule:first-child::after{
+  content:"";
+  position:absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  top: 0.55rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.10), var(--clr-opaque-400), rgba(255,255,255,0.10));
+  box-shadow: 0 0 18px var(--clr-opaque-400);
+  pointer-events:none;
 }
 
-/* Header text styling */
 .schedule:first-child p{
+  font-family: var(--ff-sci);
   font-weight: var(--fw-bold);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   font-size: var(--fs-300);
   opacity: 0.98;
 }
 
-/* Remove default margins inside cells */
-.schedule .flex p{
-  margin: 0;
-}
+.schedule .flex p{ margin: 0; }
 
-/* Mobile: stacked cards (easy to read) */
-@media screen and (max-width: 54em) {
+/* Mobile: labeled cards (keeps structure & looks intentional) */
+@media screen and (max-width: 54em){
+  /* Hide header row on mobile; each entry is self-labeled */
+  .schedule:first-child{ display: none; }
+
   .schedule{
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.65rem;
     margin-bottom: var(--size-300);
   }
 
-  .schedule .flex + .flex{
-    margin-top: 0.6rem;
+  .schedule .flex{
+    display: block;
   }
 
-  /* Slightly more breathing room for dense text */
-  .schedule > .flex:nth-child(5) p{
-    opacity: 0.95;
+  /* labels */
+  .schedule .flex:nth-child(1) p::before,
+  .schedule .flex:nth-child(2) p::before,
+  .schedule .flex:nth-child(3) p::before,
+  .schedule .flex:nth-child(4) p::before,
+  .schedule .flex:nth-child(5) p::before{
+    display: block;
+    margin-bottom: 0.15rem;
+    font-family: var(--ff-sci);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    opacity: 0.65;
+  }
+
+  .schedule .flex:nth-child(1) p::before{ content: "Date"; }
+  .schedule .flex:nth-child(2) p::before{ content: "Time"; }
+  .schedule .flex:nth-child(3) p::before{ content: "Location"; }
+  .schedule .flex:nth-child(4) p::before{ content: "Event"; }
+  .schedule .flex:nth-child(5) p::before{ content: "Description"; }
+
+  /* Make event feel like a primary field */
+  .schedule .flex:nth-child(4) p{
+    font-family: var(--ff-sci);
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
 }
 
-/* Desktop/tablet: 5-column grid matching your HTML
-   Date | Time | Location | Event | Description */
-@media screen and (min-width: 54em) {
+/* Desktop/tablet: 5-column HUD table */
+@media screen and (min-width: 54em){
   .schedule{
     display: grid;
     grid-template-columns:
-      7.5rem               /* Date (narrow) */
-      9.5rem               /* Time (narrow) */
-      5.75rem              /* Location (tight) */
+      7.5rem               /* Date */
+      9.5rem               /* Time */
+      5.75rem              /* Location */
       24rem                /* Event (wide) */
-      minmax(28rem, 1fr);  /* Description (flex) */
+      minmax(28rem, 1fr);  /* Description */
     column-gap: 1.25rem;
     row-gap: 0.4rem;
     align-items: start;
   }
 
-  /* Prevent wrapping in tight columns */
+  /* Tight columns don’t wrap */
   .schedule > .flex:nth-child(1) p,
   .schedule > .flex:nth-child(2) p,
   .schedule > .flex:nth-child(3) p{
@@ -802,125 +764,51 @@ body {
     opacity: 0.92;
   }
 
-  /* Allow wrapping in Event + Description */
+  /* Event + description can wrap naturally */
   .schedule > .flex:nth-child(4) p{
     white-space: normal;
-    font-weight: var(--fw-semi-bold);
+    font-family: var(--ff-sci);
+    font-weight: 600;
+    letter-spacing: 0.01em;
   }
-
   .schedule > .flex:nth-child(5) p{
     white-space: normal;
     opacity: 0.95;
   }
 
-  /* Clean “pop”: hover lift + accent glow (kept subtle) */
+  /* Hover “control panel” pop */
   .schedule:not(:first-child){
     transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
   }
-
   .schedule:not(:first-child):hover{
     transform: translateY(-2px);
-    border-color: rgba(255,255,255,0.22);
+    border-color: rgba(255,255,255,0.24);
     box-shadow:
-      0 18px 55px rgba(0,0,0,0.35),
+      0 22px 70px rgba(0,0,0,0.46),
       0 0 0 1px rgba(255,255,255,0.06) inset,
-      0 0 22px rgba(12, 88%, 59%, 0.0); /* keep neutral if you prefer */
-  }
-
-  /* If you DO want a true accent glow, swap the line above with:
-     0 0 22px var(--clr-opaque-400);
-  */
-}
-
-/* =========================
-   SCHEDULE HEADER: MORE DIFFERENTIATED + MORE POP
-   Paste AFTER your schedule block
-   ========================= */
-
-.schedule:first-child{
-  position: relative;
-  padding: 1.1rem 1.05rem;                 /* a touch taller than rows */
-  border-radius: 1rem;
-
-  /* Stronger header contrast */
-  background:
-    radial-gradient(900px 180px at 15% 0%, rgba(255,255,255,0.14), rgba(255,255,255,0.03) 60%),
-    linear-gradient(180deg, rgba(0,0,0,0.40), rgba(0,0,0,0.16));
-
-  /* Clear separation */
-  border: 1px solid rgba(255,255,255,0.24);
-
-  /* Slightly stronger shadow for “floating panel” */
-  box-shadow:
-    0 22px 70px rgba(0,0,0,0.45),
-    0 0 0 1px rgba(255,255,255,0.06) inset;
-}
-
-/* Neon rail at the top + subtle accent glow */
-.schedule:first-child::after{
-  content: "";
-  position: absolute;
-  left: 0.9rem;
-  right: 0.9rem;
-  top: 0.55rem;
-  height: 2px;
-  border-radius: 999px;
-
-  background: linear-gradient(
-    90deg,
-    rgba(255,255,255,0.15),
-    var(--clr-opaque-400),
-    rgba(255,255,255,0.10)
-  );
-
-  box-shadow:
-    0 0 22px var(--clr-opaque-400),
-    0 0 2px rgba(255,255,255,0.18);
-
-  pointer-events: none;
-}
-
-/* Optional: faint "scanline" sheen for futuristic feel */
-.schedule:first-child::before{
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  pointer-events: none;
-
-  background:
-    repeating-linear-gradient(
-      180deg,
-      rgba(255,255,255,0.035),
-      rgba(255,255,255,0.035) 1px,
-      rgba(0,0,0,0) 6px,
-      rgba(0,0,0,0) 10px
-    );
-
-  opacity: 0.22;  /* reduce to 0.12 if you want cleaner */
-}
-
-/* Header typography: tighter + more "UI" */
-.schedule:first-child p{
-  font-weight: var(--fw-bold);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: var(--fs-300);
-  opacity: 0.98;
-}
-
-/* Give header cells a little internal alignment polish on desktop */
-@media screen and (min-width: 54em){
-  .schedule:first-child{
-    align-items: center;
+      0 0 26px var(--clr-opaque-400);
   }
 }
 
+/* ==========================================================
+   Rules container (kept)
+   ========================================================== */
 .wcci-rules-container{
   --max-width: 1110px;
   --padding: 1rem;
   width: min(var(--max-width), 100% - (var(--padding) * 2));
   margin-inline: auto;
+
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 18px 60px rgba(0,0,0,0.34),
+    0 0 0 1px rgba(255,255,255,0.03) inset;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background:
+    radial-gradient(1200px 220px at 10% 0%, rgba(255,255,255,0.08), rgba(255,255,255,0.02) 60%),
+    linear-gradient(180deg, rgba(0,0,0,0.20), rgba(0,0,0,0.08));
 }
 
 @media screen and (max-width: 40em) {
@@ -931,9 +819,1058 @@ body {
 }
 
 @media screen and (min-width: 54em) {
-  .wcci-rules-container {
-    padding: 1rem;
-    }
-
+  .wcci-rules-container { padding: 1rem; }
 }
 
+/* ==========================================================
+   Mobile polish (spacing + readability)
+   ========================================================== */
+@media screen and (max-width: 54em){
+  .padding-block-500{ padding-block: 2rem; }
+  .padding-round-500{ padding: 1.25rem; }
+
+  .fs-primary-heading{ font-size: 1.9rem; line-height: 1.15; }
+  .fs-secondary-heading{ font-size: 1.45rem; line-height: 1.2; }
+
+  p{ opacity: 0.96; }
+}
+
+/* ==========================================================
+   HUD UPGRADE: "Targeting Asteroids" vibe
+   Paste at end of styles.css
+   ========================================================== */
+
+/* Dial knobs */
+:root{
+  --hud-glow: var(--clr-opaque-400);
+  --hud-line: rgba(255,255,255,0.14);
+  --hud-line-strong: rgba(255,255,255,0.24);
+  --hud-grid: rgba(255,255,255,0.05);
+  --hud-grid-strong: rgba(255,255,255,0.08);
+}
+
+/* 1) Tactical grid overlay across the whole page (subtle) */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--hud-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hud-grid) 1px, transparent 1px),
+    radial-gradient(circle at 50% 30%, rgba(255,255,255,0.05), rgba(255,255,255,0) 55%);
+  background-size: 52px 52px, 52px 52px, auto;
+  opacity: 0.28;
+  mix-blend-mode: screen;
+}
+
+/* 2) Make panels feel like “glass HUD modules” with bracket corners */
+.padding-round-500,
+.padding-round-400,
+.wcci-rules-container,
+.schedule{
+  position: relative;
+}
+
+/* Bracket corners */
+.padding-round-500::before,
+.padding-round-500::after,
+.padding-round-400::before,
+.padding-round-400::after,
+.wcci-rules-container::before,
+.wcci-rules-container::after,
+.schedule::before,
+.schedule::after{
+  content:"";
+  position:absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events:none;
+  opacity: 0.65;
+  filter: drop-shadow(0 0 10px var(--hud-glow));
+}
+
+/* Top-left & bottom-right brackets */
+.padding-round-500::before,
+.padding-round-400::before,
+.wcci-rules-container::before,
+.schedule::before{
+  top: 10px; left: 10px;
+  border-top: 2px solid var(--hud-line-strong);
+  border-left: 2px solid var(--hud-line-strong);
+  border-radius: 6px 0 0 0;
+}
+
+.padding-round-500::after,
+.padding-round-400::after,
+.wcci-rules-container::after,
+.schedule::after{
+  bottom: 10px; right: 10px;
+  border-bottom: 2px solid var(--hud-line-strong);
+  border-right: 2px solid var(--hud-line-strong);
+  border-radius: 0 0 6px 0;
+}
+
+/* 3) Add a reticle “rail” accent to schedule rows (feels like lock-on) */
+.schedule{
+  overflow: hidden;
+}
+
+.schedule:not(:first-child)::marker{ content: ""; }
+
+/* A thin left neon rail */
+.schedule:not(:first-child){
+  border-left: 2px solid rgba(255,255,255,0.14);
+}
+.schedule:not(:first-child)::before{
+  /* keep bracket corner from earlier, so we create a new pseudo rail via background instead */
+}
+
+/* Use a background rail instead (doesn't conflict with ::before brackets) */
+.schedule:not(:first-child){
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.0)),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.10)),
+    linear-gradient(180deg, var(--hud-glow), rgba(0,0,0,0)); /* rail */
+  background-size: auto, auto, 2px 100%;
+  background-position: 0 0, 0 0, 10px 0;
+  background-repeat: no-repeat;
+}
+
+/* 4) “Scanline” sweep animation (looks very HUD). Turn off if you dislike motion. */
+@keyframes hud-sweep{
+  0%   { transform: translateY(-120%); opacity: 0; }
+  10%  { opacity: 0.18; }
+  50%  { opacity: 0.10; }
+  100% { transform: translateY(220%); opacity: 0; }
+}
+
+/* Add scanline only inside schedule area so it’s not overkill */
+.schedule-grid-area{
+  position: relative;
+}
+
+.schedule-grid-area::before{
+  content:"";
+  position:absolute;
+  inset: -10px;
+  pointer-events:none;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(255,255,255,0.10) 48%,
+    rgba(255,255,255,0.02) 52%,
+    transparent 100%
+  );
+  opacity: 0.0;
+  animation: hud-sweep 4.5s linear infinite;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .schedule-grid-area::before{ animation: none; display:none; }
+}
+
+/* 5) Make the schedule header feel like a HUD header bar */
+.schedule:first-child{
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.schedule:first-child::after{
+  /* if you already have a neon rail, intensify it */
+  box-shadow: 0 0 26px var(--hud-glow);
+  opacity: 0.75;
+}
+
+/* 6) Add “TARGET LOCK” micro-tag on the Schedule title area (no HTML change)
+   We attach to the section header container that wraps the schedule title. */
+.schedule-grid-area{
+  padding-top: 2rem;
+}
+
+.schedule-grid-area::after{
+  content: "TARGET LOCK: ASTEROID FIELD";
+  position: absolute;
+  top: 0.35rem;
+  left: 0.5rem;
+  font-family: var(--ff-sci-strong);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.78);
+  text-shadow: 0 0 18px var(--hud-glow);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+/* 7) Make nav feel more like a HUD ribbon */
+.primary-header::after{
+  opacity: 0.75;
+  box-shadow: 0 0 22px var(--hud-glow);
+}
+
+/* 8) Tighten paragraph readability (less “blobby” on mobile) */
+@media screen and (max-width: 54em){
+  p{
+    line-height: 1.55;
+  }
+
+  /* Keep hero CTA clean */
+  .text-center .button{
+    width: min(100%, 24rem);
+  }
+}
+
+/* 9) Optional: add “corner ticks” to headings for a targeting-frame feel */
+.fs-primary-heading,
+.fs-secondary-heading{
+  position: relative;
+  padding-left: 0.35rem;
+}
+
+.fs-primary-heading::before,
+.fs-secondary-heading::before{
+  content:"";
+  position:absolute;
+  left: 0;
+  top: 0.25em;
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid rgba(255,255,255,0.22);
+  border-top: 2px solid rgba(255,255,255,0.22);
+  filter: drop-shadow(0 0 10px var(--hud-glow));
+  opacity: 0.7;
+}
+
+/* ==========================================================
+   TRON / CIRCUITRY HUD UPGRADE (GO HARDER)
+   Paste at END of styles.css
+   - Removes the overlapping TARGET LOCK label
+   - Adds cyan "Tron" glow + circuitry traces + reticle rings
+   ========================================================== */
+
+/* 0) Remove the label that was overlapping */
+.schedule-grid-area::after{
+  content: none !important;
+  display: none !important;
+}
+
+/* 1) Introduce a Tron-cyan secondary accent (keep orange for buttons) */
+:root{
+  --tron-400: hsl(190 95% 55%);         /* bright cyan */
+  --tron-opaque: hsla(190, 95%, 55%, 0.45);
+  --tron-line: rgba(120, 235, 255, 0.22);
+  --tron-line-strong: rgba(120, 235, 255, 0.38);
+  --tron-grid: rgba(120, 235, 255, 0.08);
+}
+
+/* 2) Stronger tactical grid + circuitry noise overlay */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  /* grid + faint circuitry streaks */
+  background:
+    /* grid */
+    linear-gradient(var(--tron-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--tron-grid) 1px, transparent 1px),
+
+    /* diagonal circuit streaks */
+    repeating-linear-gradient(
+      135deg,
+      rgba(120,235,255,0.00) 0px,
+      rgba(120,235,255,0.00) 24px,
+      rgba(120,235,255,0.06) 25px,
+      rgba(120,235,255,0.00) 26px,
+      rgba(120,235,255,0.00) 60px
+    ),
+
+    /* subtle vignette glow */
+    radial-gradient(900px 600px at 50% 20%, rgba(120,235,255,0.06), rgba(0,0,0,0) 60%);
+
+  background-size: 52px 52px, 52px 52px, auto, auto;
+  opacity: 0.45;
+  mix-blend-mode: screen;
+}
+
+/* 3) Header rail becomes Tron-cyan */
+.primary-header::after{
+  background: linear-gradient(90deg, transparent, var(--tron-opaque), transparent) !important;
+  box-shadow: 0 0 26px var(--tron-opaque) !important;
+  opacity: 0.8 !important;
+}
+
+/* 4) Nav hover gets cyan glow (keeps it “Tron”) */
+.nav-list a:hover,
+.nav-list a:focus{
+  text-shadow:
+    0 0 16px rgba(255,255,255,0.10),
+    0 0 26px var(--tron-opaque) !important;
+}
+
+/* 5) Make all panels feel like “HUD glass” with cyan edge light */
+.padding-round-500,
+.padding-round-400,
+.wcci-rules-container,
+.schedule{
+  border-color: rgba(255,255,255,0.10) !important;
+  box-shadow:
+    0 18px 60px rgba(0,0,0,0.38),
+    0 0 0 1px rgba(255,255,255,0.03) inset,
+    0 0 22px rgba(120,235,255,0.10) !important;
+}
+
+/* 6) Circuit-board frame: bracket corners + trace nodes */
+.padding-round-500,
+.padding-round-400,
+.wcci-rules-container,
+.schedule{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bracket corners (cyan) */
+.padding-round-500::before,
+.padding-round-500::after,
+.padding-round-400::before,
+.padding-round-400::after,
+.wcci-rules-container::before,
+.wcci-rules-container::after,
+.schedule::before,
+.schedule::after{
+  content:"";
+  position:absolute;
+  width: 22px;
+  height: 22px;
+  pointer-events:none;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 14px var(--tron-opaque));
+}
+
+.padding-round-500::before,
+.padding-round-400::before,
+.wcci-rules-container::before,
+.schedule::before{
+  top: 10px; left: 10px;
+  border-top: 2px solid var(--tron-line-strong);
+  border-left: 2px solid var(--tron-line-strong);
+  border-radius: 6px 0 0 0;
+}
+
+.padding-round-500::after,
+.padding-round-400::after,
+.wcci-rules-container::after,
+.schedule::after{
+  bottom: 10px; right: 10px;
+  border-bottom: 2px solid var(--tron-line-strong);
+  border-right: 2px solid var(--tron-line-strong);
+  border-radius: 0 0 6px 0;
+}
+
+/* Internal circuitry traces overlay (per-panel) */
+.padding-round-500 > *,
+.padding-round-400 > *,
+.wcci-rules-container > *,
+.schedule > *{
+  position: relative;
+  z-index: 1;
+}
+
+.padding-round-500::marker{ content:""; }
+.padding-round-500::selection{ background: var(--tron-opaque); }
+
+/* Traces + nodes as an overlay */
+.padding-round-500::before,
+.padding-round-400::before,
+.wcci-rules-container::before,
+.schedule::before{
+  /* keep brackets; circuitry goes on a new overlay via background on the element itself */
+}
+
+/* Element-level circuitry background (doesn't conflict with ::before brackets) */
+.padding-round-500,
+.padding-round-400,
+.wcci-rules-container,
+.schedule{
+  background-image:
+    /* existing background stays underneath, this goes on top subtly */
+    radial-gradient(8px 8px at 14% 28%, rgba(120,235,255,0.16), rgba(120,235,255,0.0) 70%),
+    radial-gradient(6px 6px at 78% 22%, rgba(120,235,255,0.14), rgba(120,235,255,0.0) 70%),
+    radial-gradient(7px 7px at 64% 78%, rgba(120,235,255,0.12), rgba(120,235,255,0.0) 70%),
+    linear-gradient(90deg, rgba(120,235,255,0.08) 1px, rgba(0,0,0,0) 1px),
+    linear-gradient(180deg, rgba(120,235,255,0.06) 1px, rgba(0,0,0,0) 1px);
+
+  background-size: auto, auto, auto, 64px 64px, 64px 64px;
+  background-position: 0 0, 0 0, 0 0, 0 0, 0 0;
+  background-repeat: no-repeat;
+}
+
+/* 7) Schedule gets “target lock” rails + stronger hover glow */
+.schedule{
+  border-color: rgba(120,235,255,0.18) !important;
+}
+
+.schedule:first-child{
+  border-color: rgba(120,235,255,0.26) !important;
+  box-shadow:
+    0 22px 78px rgba(0,0,0,0.55),
+    0 0 42px rgba(120,235,255,0.18) !important;
+}
+
+/* Replace header neon rail to cyan (instead of orange) */
+.schedule:first-child::after{
+  content:"";
+  position:absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  top: 0.55rem;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--tron-opaque), transparent);
+  box-shadow: 0 0 26px var(--tron-opaque);
+  pointer-events:none;
+}
+
+/* Desktop hover: stronger “Tron” pop */
+@media screen and (min-width: 54em){
+  .schedule:not(:first-child):hover{
+    box-shadow:
+      0 26px 90px rgba(0,0,0,0.58),
+      0 0 0 1px rgba(255,255,255,0.06) inset,
+      0 0 46px var(--tron-opaque) !important;
+    border-color: rgba(120,235,255,0.30) !important;
+  }
+}
+
+/* 8) Add RETICLE RINGS behind the schedule area (asteroid targeting vibe) */
+.schedule-grid-area{
+  position: relative;
+  padding-top: 1.25rem; /* avoids any overlap with the section title */
+}
+
+.schedule-grid-area::before{
+  content:"";
+  position:absolute;
+  inset: -40px;
+  pointer-events:none;
+
+  /* reticle rings + crosshair */
+  background:
+    radial-gradient(circle at 50% 40%, rgba(120,235,255,0.08) 0 2px, rgba(0,0,0,0) 2px),
+    radial-gradient(circle at 50% 40%, rgba(120,235,255,0.06) 0 120px, rgba(0,0,0,0) 121px),
+    radial-gradient(circle at 50% 40%, rgba(120,235,255,0.05) 0 240px, rgba(0,0,0,0) 241px),
+    linear-gradient(90deg, rgba(0,0,0,0) 49.6%, rgba(120,235,255,0.06) 50%, rgba(0,0,0,0) 50.4%),
+    linear-gradient(180deg, rgba(0,0,0,0) 49.6%, rgba(120,235,255,0.06) 50%, rgba(0,0,0,0) 50.4%);
+
+  filter: drop-shadow(0 0 22px rgba(120,235,255,0.10));
+  opacity: 0.6;
+  mix-blend-mode: screen;
+}
+
+/* 9) Optional: “sweep” scanline across schedule (more Tron). */
+@keyframes tron-sweep{
+  0%   { transform: translateY(-140%); opacity: 0; }
+  10%  { opacity: 0.22; }
+  50%  { opacity: 0.14; }
+  100% { transform: translateY(240%); opacity: 0; }
+}
+
+.schedule-grid-area .schedule{
+  /* makes scanline feel like it’s scanning rows */
+}
+
+.schedule-grid-area{
+  overflow: visible;
+}
+
+.schedule-grid-area .schedule::selection{
+  background: var(--tron-opaque);
+}
+
+.schedule-grid-area{
+  /* scanline overlay */
+}
+.schedule-grid-area{
+  /* use an additional overlay without touching your existing ::before reticle */
+}
+.schedule-grid-area::marker{ content:""; }
+
+.schedule-grid-area{
+  /* no-op: placeholder for clarity */
+}
+
+.schedule-grid-area{
+  /* scanline as a separate pseudo-element so it doesn't conflict */
+}
+.schedule-grid-area{
+  /* keep */
+}
+
+.schedule-grid-area{
+  /* keep */
+}
+
+/* create scanline with ::after (we removed the label already) */
+.schedule-grid-area::after{
+  content:"";
+  position:absolute;
+  inset: -30px;
+  pointer-events:none;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(120,235,255,0.20) 48%,
+    rgba(120,235,255,0.04) 52%,
+    transparent 100%
+  );
+  opacity: 0.0;
+  animation: tron-sweep 4.2s linear infinite;
+  mix-blend-mode: screen;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .schedule-grid-area::after{ animation: none; display:none; }
+}
+
+/* 10) Make headings feel more “HUD readout” */
+.fs-primary-heading{
+  text-shadow:
+    0 14px 34px rgba(0,0,0,0.65),
+    0 0 22px rgba(120,235,255,0.10);
+}
+.fs-secondary-heading{
+  text-shadow:
+    0 12px 30px rgba(0,0,0,0.60),
+    0 0 18px rgba(120,235,255,0.10);
+}
+
+/* 11) Keep orange CTA (we want contrast: orange = action, cyan = HUD) */
+.button{
+  box-shadow:
+    0 18px 60px rgba(0,0,0,0.46),
+    0 0 34px var(--clr-opaque-400) !important;
+}
+
+/* 12) Mobile schedule stays structured (labels) — but “harder” styling */
+@media screen and (max-width: 54em){
+  .schedule{
+    border-color: rgba(120,235,255,0.20) !important;
+    box-shadow:
+      0 18px 58px rgba(0,0,0,0.44),
+      0 0 34px rgba(120,235,255,0.10) !important;
+  }
+
+  .schedule .flex:nth-child(1) p::before,
+  .schedule .flex:nth-child(2) p::before,
+  .schedule .flex:nth-child(3) p::before,
+  .schedule .flex:nth-child(4) p::before,
+  .schedule .flex:nth-child(5) p::before{
+    color: rgba(120,235,255,0.85);
+    text-shadow: 0 0 14px rgba(120,235,255,0.18);
+  }
+}
+
+/* ==========================================================
+   HEADER LOCK-ON RETICLE (left side)
+   Paste at END of styles.css
+   ========================================================== */
+
+@keyframes lockon-pulse {
+  0%   { transform: translateY(-50%) scale(0.92); opacity: 0.18; }
+  45%  { transform: translateY(-50%) scale(1.02); opacity: 0.34; }
+  100% { transform: translateY(-50%) scale(1.16); opacity: 0.00; }
+}
+
+@keyframes lockon-flicker {
+  0%, 100% { opacity: 0.55; }
+  40%      { opacity: 0.35; }
+  60%      { opacity: 0.70; }
+}
+
+/* Ensure header can host the reticle */
+.primary-header{
+  position: sticky; /* already in your theme, safe to repeat */
+  overflow: visible;
+}
+
+/* Reticle base (rings + crosshair) */
+.primary-header::before{
+  content:"";
+  position: absolute;
+
+  /* LEFT side placement */
+  left: 1.25rem;
+  top: 50%;
+  width: 140px;
+  height: 140px;
+  transform: translateY(-50%);
+
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    /* central dot */
+    radial-gradient(circle at 50% 50%, rgba(120,235,255,0.22) 0 2px, rgba(0,0,0,0) 3px),
+
+    /* rings */
+    radial-gradient(circle at 50% 50%, rgba(120,235,255,0.16) 0 42px, rgba(0,0,0,0) 43px),
+    radial-gradient(circle at 50% 50%, rgba(120,235,255,0.10) 0 66px, rgba(0,0,0,0) 67px),
+
+    /* crosshair */
+    linear-gradient(90deg,
+      rgba(0,0,0,0) 49.2%,
+      rgba(120,235,255,0.14) 50%,
+      rgba(0,0,0,0) 50.8%
+    ),
+    linear-gradient(180deg,
+      rgba(0,0,0,0) 49.2%,
+      rgba(120,235,255,0.14) 50%,
+      rgba(0,0,0,0) 50.8%
+    );
+
+  filter: drop-shadow(0 0 22px rgba(120,235,255,0.18));
+  opacity: 0.55;
+  mix-blend-mode: screen;
+
+  animation: lockon-flicker 3.8s ease-in-out infinite;
+}
+
+/* Pulsing outer ring */
+.primary-header .nav-wrapper{
+  position: relative;
+  z-index: 1; /* keep logo/nav above the reticle */
+}
+
+.primary-header::after{
+  /* keep your existing header rail? If you already use ::after for the rail,
+     we shouldn’t overwrite it. Instead we’ll attach pulse to .nav-wrapper. */
+}
+
+/* Use nav-wrapper pseudo-element for the pulse so we don't conflict with header rail */
+.primary-header .nav-wrapper::before{
+  content:"";
+  position: absolute;
+
+  left: 1.25rem;
+  top: 50%;
+  width: 140px;
+  height: 140px;
+
+  transform: translateY(-50%);
+  border-radius: 999px;
+
+  border: 2px solid rgba(120,235,255,0.24);
+  box-shadow:
+    0 0 24px rgba(120,235,255,0.22),
+    0 0 2px rgba(255,255,255,0.10) inset;
+
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+
+  animation: lockon-pulse 2.6s linear infinite;
+}
+
+/* Scale down reticle on very small screens so it doesn't crowd the logo */
+@media (max-width: 28em){
+  .primary-header::before,
+  .primary-header .nav-wrapper::before{
+    width: 110px;
+    height: 110px;
+    left: 0.75rem;
+  }
+}
+
+/* ==========================================================
+   80's WIREFRAME HEADER RETICLE + ASTEROID (LEFT SIDE)
+   Paste at END of styles.css (overrides earlier reticle rules)
+   ========================================================== */
+
+/* wireframe green palette */
+:root{
+  --wire-400: hsl(132 95% 55%);          /* bright vector green */
+  --wire-opaque: hsla(132, 95%, 55%, 0.35);
+  --wire-line: rgba(80, 255, 170, 0.26);
+  --wire-line-strong: rgba(80, 255, 170, 0.46);
+  --wire-grid: rgba(80, 255, 170, 0.10);
+}
+
+@keyframes lockon-pulse-green {
+  0%   { transform: translateY(-50%) scale(0.90); opacity: 0.10; }
+  35%  { opacity: 0.26; }
+  70%  { transform: translateY(-50%) scale(1.06); opacity: 0.18; }
+  100% { transform: translateY(-50%) scale(1.18); opacity: 0.00; }
+}
+
+@keyframes lockon-flicker-green {
+  0%, 100% { opacity: 0.55; }
+  30%      { opacity: 0.38; }
+  55%      { opacity: 0.72; }
+  80%      { opacity: 0.48; }
+}
+
+/* Ensure header can host the reticle */
+.primary-header{
+  position: sticky;
+  overflow: visible;
+}
+
+/* Keep logo/nav above */
+.primary-header .nav-wrapper{
+  position: relative;
+  z-index: 2;
+}
+
+/* 1) Reticle base + embedded wireframe asteroid */
+.primary-header::before{
+  content:"";
+  position: absolute;
+
+  /* LEFT placement */
+  left: 1.25rem;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  transform: translateY(-50%);
+
+  pointer-events: none;
+  z-index: 1;
+
+  /* 80's wireframe: asteroid + rings + crosshair + tick marks */
+  background:
+    /* ---- wireframe asteroid SVG (green) ---- */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%2350FFAA' stroke-opacity='0.72' stroke-width='2'%3E%3Cpath d='M72 14c12 4 23 17 28 29 5 12 5 29-2 41-7 12-18 22-31 25-13 3-31 1-42-7-11-8-20-24-20-38 0-14 9-30 21-39 12-9 33-15 46-11Z'/%3E%3Cpath d='M36 44l10-8 18 4 14-6 12 10-6 14 8 14-12 10-16-2-10 10-16-6-10-14 8-12-2-14Z' stroke-opacity='0.35'/%3E%3Cpath d='M40 48c6-3 16-2 22 2 6 4 9 12 6 18-3 6-12 10-19 9-7-1-14-7-15-14-1-7 0-12 6-15Z'/%3E%3Ccircle cx='78' cy='58' r='5'/%3E%3Ccircle cx='58' cy='86' r='4'/%3E%3Cpath d='M26 62h12M82 26v12M86 92h12M22 30l10 6M96 38l-8 8' stroke-opacity='0.45'/%3E%3C/g%3E%3C/svg%3E"),
+
+    /* central dot */
+    radial-gradient(circle at 50% 50%, rgba(80,255,170,0.55) 0 2px, rgba(0,0,0,0) 3px),
+
+    /* rings */
+    radial-gradient(circle at 50% 50%, rgba(80,255,170,0.30) 0 44px, rgba(0,0,0,0) 45px),
+    radial-gradient(circle at 50% 50%, rgba(80,255,170,0.18) 0 70px, rgba(0,0,0,0) 71px),
+
+    /* crosshair */
+    linear-gradient(90deg,
+      rgba(0,0,0,0) 49.25%,
+      rgba(80,255,170,0.28) 50%,
+      rgba(0,0,0,0) 50.75%
+    ),
+    linear-gradient(180deg,
+      rgba(0,0,0,0) 49.25%,
+      rgba(80,255,170,0.28) 50%,
+      rgba(0,0,0,0) 50.75%
+    ),
+
+    /* subtle tick marks */
+    conic-gradient(from 0deg,
+      rgba(0,0,0,0) 0 10deg,
+      rgba(80,255,170,0.18) 10deg 12deg,
+      rgba(0,0,0,0) 12deg 40deg,
+      rgba(80,255,170,0.18) 40deg 42deg,
+      rgba(0,0,0,0) 42deg 70deg,
+      rgba(80,255,170,0.18) 70deg 72deg,
+      rgba(0,0,0,0) 72deg 100deg,
+      rgba(80,255,170,0.18) 100deg 102deg,
+      rgba(0,0,0,0) 102deg 360deg
+    );
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:
+    76px 76px, /* asteroid */
+    auto, auto, auto, auto, auto, cover;
+
+  filter:
+    drop-shadow(0 0 18px rgba(80,255,170,0.18))
+    drop-shadow(0 0 2px rgba(255,255,255,0.06));
+
+  opacity: 0.62;
+  mix-blend-mode: screen;
+
+  animation: lockon-flicker-green 3.6s ease-in-out infinite;
+}
+
+/* 2) Pulsing outer ring (does not conflict with your header rail) */
+.primary-header .nav-wrapper::before{
+  content:"";
+  position: absolute;
+
+  left: 1.25rem;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+
+  transform: translateY(-50%);
+  border-radius: 999px;
+
+  border: 2px solid rgba(80,255,170,0.26);
+  box-shadow:
+    0 0 26px rgba(80,255,170,0.20),
+    0 0 2px rgba(255,255,255,0.08) inset;
+
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+
+  animation: lockon-pulse-green 2.4s linear infinite;
+}
+
+/* 3) Optional: make the header rail match green wireframe too (comment out if you want to keep cyan/orange) */
+.primary-header::after{
+  background: linear-gradient(90deg, transparent, var(--wire-opaque), transparent) !important;
+  box-shadow: 0 0 22px var(--wire-opaque) !important;
+  opacity: 0.75 !important;
+}
+
+/* 4) Scale down reticle on very small screens */
+@media (max-width: 28em){
+  .primary-header::before,
+  .primary-header .nav-wrapper::before{
+    width: 115px;
+    height: 115px;
+    left: 0.75rem;
+  }
+
+  .primary-header::before{
+    background-size: 62px 62px, auto, auto, auto, auto, auto, cover;
+  }
+}
+
+/* ==========================================================
+   HEADER HUD TARGET MODULE (fits your nav-wrapper layout)
+   Paste at END of styles.css
+   ========================================================== */
+
+:root{
+  --hud-green: hsl(132 95% 55%);
+  --hud-line: rgba(80, 255, 170, 0.62);
+  --hud-glow: rgba(80, 255, 170, 0.20);
+}
+
+/* anchor */
+.nav-wrapper{
+  position: relative;
+}
+
+/* make sure HUD sits behind clickable UI */
+.nav-wrapper > a,
+.nav-wrapper > button,
+.nav-wrapper nav{
+  position: relative;
+  z-index: 2;
+}
+
+/* HUD box */
+.hud-target{
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 128px;
+  height: 128px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.95;
+  filter:
+    drop-shadow(0 0 12px rgba(80,255,170,0.18))
+    drop-shadow(0 0 2px rgba(255,255,255,0.06));
+}
+
+/* push logo/nav right so HUD doesn't overlap */
+@media (min-width: 40em){
+  .nav-wrapper{
+    padding-left: 150px;
+  }
+}
+
+/* mobile sizing: keep HUD but smaller; don't interfere with fixed hamburger */
+@media (max-width: 40em){
+  .hud-target{
+    width: 102px;
+    height: 102px;
+    left: 0.25rem;
+    opacity: 0.92;
+  }
+  .nav-wrapper{
+    padding-left: 118px;
+  }
+}
+
+.hud-svg{
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 999px;
+
+  /* scanlines */
+  background: repeating-linear-gradient(
+    180deg,
+    rgba(80,255,170,0.028),
+    rgba(80,255,170,0.028) 1px,
+    rgba(0,0,0,0) 3px,
+    rgba(0,0,0,0) 6px
+  );
+}
+
+/* strokes */
+.hud-ring-outer,
+.hud-ring-inner,
+.hud-ring-core,
+.hud-cross,
+.hud-ticks line,
+.hud-arc,
+.hud-ast-outline,
+.hud-ast-mesh path,
+.hud-crater,
+.hud-crater2,
+.hud-corners path{
+  stroke: var(--hud-line);
+  fill: none;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+/* ring */
+.hud-ring-outer{ stroke-width: 1.6; opacity: 0.95; }
+.hud-ring-inner{ stroke-width: 1.0; opacity: 0.65; }
+.hud-ring-core { stroke-width: 0; fill: var(--hud-green); opacity: 0.9; }
+.hud-cross{ stroke-width: 1.3; opacity: 0.9; }
+.hud-ticks line{ stroke-width: 1.0; opacity: 0.65; }
+.hud-arc{ stroke-width: 1.0; opacity: 0.45; }
+
+/* asteroid */
+.hud-ast-outline{ stroke-width: 1.4; opacity: 0.95; }
+.hud-ast-mesh path{ stroke-width: 0.85; opacity: 0.42; }
+.hud-crater{ stroke-width: 1.0; opacity: 0.70; }
+.hud-crater2{ stroke-width: 0.9; opacity: 0.55; }
+
+/* corners */
+.hud-corners path{
+  opacity: 0;
+  transform-origin: 100px 100px;
+
+  /* loop lock sequence */
+  animation: hud-corners-lock 6.5s ease-in-out infinite;
+}
+
+/* animations */
+@keyframes hud-rotate-slow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes hud-rotate-med  { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
+
+@keyframes hud-corners-lock{
+  /* cycle: appear + snap in + hold + fade out */
+  0%   { opacity: 0; transform: scale(1.20); }
+  10%  { opacity: 1; transform: scale(1.00); }
+  14%  { opacity: 1; transform: scale(0.96); } /* tiny overshoot */
+  18%  { opacity: 1; transform: scale(1.00); }
+
+  /* hold “locked” for most of the cycle */
+  70%  { opacity: 1; transform: scale(1.00); }
+
+  /* release */
+  80%  { opacity: 0; transform: scale(1.08); }
+  100% { opacity: 0; transform: scale(1.20); }
+}
+
+/* lock “stabilization”: tiny pulse + micro jitter */
+@keyframes hud-track-pulse{
+  0%, 100% { transform: scale(1.00); }
+  50%      { transform: scale(1.02); }
+}
+@keyframes hud-track-jitter{
+  0%, 100% { transform: translate(0,0); }
+  25%      { transform: translate(0.4px,-0.3px); }
+  50%      { transform: translate(-0.3px,0.4px); }
+  75%      { transform: translate(0.2px,0.2px); }
+}
+
+/* subtle CRT flicker */
+@keyframes hud-flicker{
+  0%, 100% { opacity: 0.95; }
+  42%      { opacity: 0.78; }
+  55%      { opacity: 0.98; }
+  68%      { opacity: 0.82; }
+}
+
+/* apply animations */
+.hud-ring{
+  transform-origin: 100px 100px;
+  animation: hud-rotate-med 18s linear infinite;
+}
+.hud-asteroid{
+  transform-origin: 100px 100px;
+  animation: hud-rotate-slow 44s linear infinite;
+}
+
+/* corners: lock in, then track */
+.hud-corners{
+  transform-origin: 100px 100px;
+  animation: hud-track-pulse 2.6s ease-in-out infinite;
+  animation-delay: 1.35s;
+}
+.hud-corners path{
+  animation:
+    hud-corners-lock 900ms ease-out forwards,
+    hud-track-jitter 1.8s ease-in-out infinite;
+  animation-delay: 900ms, 1.6s;
+}
+
+/* overall flicker */
+.hud-target{
+  animation: hud-flicker 6.5s ease-in-out infinite;
+}
+
+/* reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .hud-ring, .hud-asteroid, .hud-target, .hud-corners, .hud-corners path{
+    animation: none !important;
+  }
+  .hud-corners path{ opacity: 1; }
+}
+
+/* Asteroid image layer (centered inside reticle) */
+.hud-target{
+  position: absolute;
+  /* keep your existing positioning rules */
+}
+
+.hud-asteroid-img{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 64px;          /* <-- adjust this to taste */
+  height: 64px;         /* keep square for rotation */
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 1;
+
+  /* give it that CRT glow */
+  filter:
+    drop-shadow(0 0 10px rgba(80,255,170,0.18))
+    drop-shadow(0 0 2px rgba(255,255,255,0.06));
+  opacity: 0.95;
+}
+
+/* Rotate asteroid image slowly */
+@keyframes hud-asteroid-img-rotate{
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hud-asteroid-img{
+  animation: hud-asteroid-img-rotate 44s linear infinite;
+}
+
+/* Keep SVG reticle above the asteroid or below it (choose) */
+.hud-svg{
+  position: relative;
+  z-index: 2; /* reticle on top */
+}
+
+/* If you prefer asteroid on top of ring, swap z-index values:
+   .hud-asteroid-img { z-index: 2; }
+   .hud-svg { z-index: 1; }
+*/

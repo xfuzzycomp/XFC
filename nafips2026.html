@@ -16,6 +16,51 @@
   <header class="primary-header">
     <div class="container">
       <div class="nav-wrapper margin:auto">
+		<div class="hud-target" aria-hidden="true">
+		  <!-- Reticle SVG stays -->
+		  <svg class="hud-svg" viewBox="0 0 200 200" role="img" focusable="false">
+			<g class="hud-ring">
+			  <circle class="hud-ring-outer" cx="100" cy="100" r="78" />
+			  <circle class="hud-ring-inner" cx="100" cy="100" r="58" />
+			  <circle class="hud-ring-core" cx="100" cy="100" r="2" />
+			  <line class="hud-cross" x1="100" y1="14" x2="100" y2="34" />
+			  <line class="hud-cross" x1="100" y1="166" x2="100" y2="186" />
+			  <line class="hud-cross" x1="14" y1="100" x2="34" y2="100" />
+			  <line class="hud-cross" x1="166" y1="100" x2="186" y2="100" />
+			  <g class="hud-ticks">
+				<line x1="100" y1="22"  x2="100" y2="30" />
+				<line x1="100" y1="170" x2="100" y2="178" />
+				<line x1="22"  y1="100" x2="30"  y2="100" />
+				<line x1="170" y1="100" x2="178" y2="100" />
+				<line x1="148" y1="34" x2="144" y2="40" />
+				<line x1="52"  y1="166" x2="56"  y2="160" />
+				<line x1="166" y1="148" x2="160" y2="144" />
+				<line x1="34"  y1="52"  x2="40"  y2="56" />
+			  </g>
+			  <path class="hud-arc" d="M40,64 A58,58 0 0 1 64,40" />
+			  <path class="hud-arc" d="M160,64 A58,58 0 0 0 136,40" />
+			  <path class="hud-arc" d="M40,136 A58,58 0 0 0 64,160" />
+			  <path class="hud-arc" d="M160,136 A58,58 0 0 1 136,160" />
+			</g>
+			<!-- Corners stay in SVG (we animate them) -->
+			<g class="hud-corners">
+			  <!-- top-left (inward) -->
+			  <path d="M70 70 L86 70 M70 70 L70 86" />
+			  <!-- top-right (inward) -->
+			  <path d="M130 70 L114 70 M130 70 L130 86" />
+			  <!-- bottom-left (inward) -->
+			  <path d="M70 130 L86 130 M70 130 L70 114" />
+			  <!-- bottom-right (inward) -->
+			  <path d="M130 130 L114 130 M130 130 L130 114" />
+			</g>
+		  </svg>
+		  <!-- Asteroid IMAGE layer -->
+		  <img class="hud-asteroid-img"
+			   src="images/asteroid_wireframe_green.png"
+			   alt=""
+			   loading="lazy"
+			   decoding="async">
+		</div>
         <a href="index.html"><img src="images/XFCtransp.png" alt="Manage"></a>
         <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
           <img class="icon-hamburger" src="images/icon-hamburger.png" alt="" aria-hidden="true">
