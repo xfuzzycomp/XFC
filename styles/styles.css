@@ -836,8 +836,6 @@ h1, h2{
 }
 
 /* ==========================================================
-
-/* ==========================================================
    HEADER HUD TARGET MODULE (SVG reticle + image asteroid)
    - Keep this block at END of styles.css
    ========================================================== */
@@ -1094,4 +1092,345 @@ h1, h2{
   .nav-wrapper{
     padding-left: 108px;     /* was ~118px */
   }
+}
+
+/* ==========================================================
+   Sticky transparent HUD header + spacey Tron/vector background
+   Paste at END of styles.css
+   ========================================================== */
+
+:root{
+  --bg-deep: #05060b;
+  --bg-mid: #070a12;
+  --bg-glow: rgba(80,255,170,0.10);      /* vector green glow */
+  --grid: rgba(80,255,170,0.10);
+  --grid-strong: rgba(80,255,170,0.16);
+
+  --header-glass: rgba(5, 6, 11, 0.38);
+  --header-border: rgba(255,255,255,0.10);
+  --header-glow: rgba(80,255,170,0.14);
+
+  --header-height: 84px;                /* adjust if your header is taller */
+}
+
+/* ---------
+   Page background: space + vector grid + subtle stars
+   --------- */
+html, body{
+  background: var(--bg-deep);
+}
+
+/* Put the “space” behind everything */
+body{
+  position: relative;
+  isolation: isolate; /* keeps blend layers controlled */
+}
+
+/* Stars + nebula glow layer */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    radial-gradient(900px 520px at 15% 10%, rgba(80,255,170,0.08), rgba(0,0,0,0) 60%),
+    radial-gradient(900px 520px at 85% 20%, rgba(0,170,255,0.06), rgba(0,0,0,0) 62%),
+    radial-gradient(700px 420px at 55% 80%, rgba(255,120,0,0.04), rgba(0,0,0,0) 60%),
+
+    /* tiny star speckle (cheap but effective) */
+    radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.35), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 26% 62%, rgba(255,255,255,0.28), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 43% 28%, rgba(255,255,255,0.30), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 58% 44%, rgba(255,255,255,0.22), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 73% 68%, rgba(255,255,255,0.26), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 86% 34%, rgba(255,255,255,0.24), rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 92% 84%, rgba(255,255,255,0.20), rgba(0,0,0,0));
+
+  opacity: 0.95;
+}
+
+/* Vector grid + scanline layer */
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+
+  background:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+    radial-gradient(circle at 50% 30%, rgba(80,255,170,0.08), rgba(0,0,0,0) 55%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(80,255,170,0.028) 0px,
+      rgba(80,255,170,0.028) 1px,
+      rgba(0,0,0,0) 4px,
+      rgba(0,0,0,0) 7px
+    );
+
+  background-size: 60px 60px, 60px 60px, auto, auto;
+  mix-blend-mode: screen;
+  opacity: 0.38;
+}
+
+/* ensure content sits above the fixed background layers */
+body > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------
+   Sticky header: transparent HUD glass that floats above content
+   --------- */
+.primary-header{
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+
+  /* translucent glass */
+  background: var(--header-glass);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+
+  border-bottom: 1px solid var(--header-border);
+  box-shadow:
+    0 14px 46px rgba(0,0,0,0.55),
+    0 0 28px var(--header-glow);
+
+  /* so content is visible behind header glass */
+  color: rgba(255,255,255,0.92);
+}
+
+/* Optional: a thin neon “HUD rail” across the header */
+.primary-header::after{
+  content:"";
+  position:absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(80,255,170,0.35), transparent);
+  box-shadow: 0 0 22px rgba(80,255,170,0.18);
+  opacity: 0.9;
+  pointer-events:none;
+}
+
+/* Because header is sticky, add top padding so the page doesn't hide behind it */
+main{
+  padding-top: 0.75rem;
+}
+
+/* If you see content tucked behind the header on jump links, add this: */
+:target{
+  scroll-margin-top: calc(var(--header-height) + 12px);
+}
+
+/* Nav links pop a bit more on glass */
+.nav-list a{
+  color: rgba(255,255,255,0.86);
+  text-shadow: 0 0 18px rgba(80,255,170,0.06);
+}
+.nav-list a:hover,
+.nav-list a:focus{
+  color: rgba(255,255,255,0.95);
+  text-shadow:
+    0 0 16px rgba(80,255,170,0.12),
+    0 0 30px rgba(80,255,170,0.10);
+}
+
+/* Mobile menu panel should also look like HUD glass */
+.primary-navigation{
+  background: rgba(5,6,11,0.72);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow:
+    0 18px 70px rgba(0,0,0,0.62),
+    0 0 30px rgba(80,255,170,0.10);
+}
+
+/* Respect reduced motion: remove scanline intensity a bit */
+@media (prefers-reduced-motion: reduce){
+  body::after{ opacity: 0.28; }
+}
+
+/* Make header float above content (text scrolls behind it) */
+.primary-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9999;
+
+  background: rgba(5, 6, 11, 0.38);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+}
+
+/* Compensate for fixed header so content isn't hidden underneath */
+body{
+  padding-top: var(--header-height, 84px);
+}
+
+/* ==========================================================
+   FINAL OVERRIDES
+   - header always above content
+   - background locked (content moves over it)
+   Paste at END of styles.css
+   ========================================================== */
+
+/* 1) Undo the “raise all body children” rule that can put content above header */
+body > *{
+  position: relative;
+  z-index: auto !important;
+}
+
+/* 2) Lock the background to the viewport (no scrolling background feel) */
+body{
+  background: transparent !important; /* stop base body gradients from scrolling */
+}
+
+/* Put the base “space field” on a fixed layer */
+body::before{
+  content:"" !important;
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: -2 !important;
+
+  background:
+    radial-gradient(1200px 800px at 15% -10%, rgba(255,255,255,0.06), rgba(255,255,255,0) 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(255,255,255,0.04), rgba(255,255,255,0) 55%),
+    radial-gradient(700px 400px at 60% 110%, rgba(255,255,255,0.03), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, hsl(220 25% 8%), hsl(225 22% 6%)) !important;
+
+  opacity: 1 !important;
+}
+
+/* Keep your Tron grid/scanlines fixed above the base space layer */
+body::after{
+  position: fixed !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  z-index: -1 !important;  /* below content, above space */
+}
+
+/* 3) Header: fixed + ALWAYS above everything */
+header.primary-header{
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 100000 !important;
+
+  background: rgba(5, 6, 11, 0.38) !important;
+  backdrop-filter: blur(10px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(10px) saturate(140%) !important;
+}
+
+/* Make sure content starts below fixed header */
+body{
+  padding-top: var(--header-height, 84px) !important;
+}
+
+/* 4) Mobile menu: ensure it appears above header and starts below it */
+@media (max-width: 50em){
+  .primary-navigation{
+    z-index: 100001 !important;
+    inset: calc(var(--header-height, 84px) + 0.75rem) var(--size-400) auto !important;
+  }
+  .mobile-nav-toggle{
+    z-index: 100002 !important;
+  }
+}
+
+/* ==========================================================
+   CLEAN HUD CORNERS (no box glow)
+   ========================================================== */
+
+.nav-list a{
+  position: relative;
+  display: inline-block;
+  padding: 0.4rem 0.75rem;
+  background: transparent !important;
+  box-shadow: none !important;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+/* All corner elements */
+.nav-list a::before,
+.nav-list a::after,
+.nav-list a span.hud-corner{
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+/* Remove any background bleed */
+.nav-list a::before,
+.nav-list a::after{
+  content: "";
+}
+
+/* TOP LEFT */
+.nav-list a::before{
+  top: -3px;
+  left: -3px;
+  border-top: 2px solid rgba(80,255,170,0.95);
+  border-left: 2px solid rgba(80,255,170,0.95);
+}
+
+/* BOTTOM RIGHT */
+.nav-list a::after{
+  bottom: -3px;
+  right: -3px;
+  border-bottom: 2px solid rgba(80,255,170,0.95);
+  border-right: 2px solid rgba(80,255,170,0.95);
+}
+
+/* TOP RIGHT */
+.nav-list a span.hud-corner.top-right{
+  top: -3px;
+  right: -3px;
+  border-top: 2px solid rgba(80,255,170,0.95);
+  border-right: 2px solid rgba(80,255,170,0.95);
+}
+
+/* BOTTOM LEFT */
+.nav-list a span.hud-corner.bottom-left{
+  bottom: -3px;
+  left: -3px;
+  border-bottom: 2px solid rgba(80,255,170,0.95);
+  border-left: 2px solid rgba(80,255,170,0.95);
+}
+
+/* Show on hover */
+.nav-list a:hover::before,
+.nav-list a:hover::after,
+.nav-list a:hover span.hud-corner,
+.nav-list a:focus::before,
+.nav-list a:focus::after,
+.nav-list a:focus span.hud-corner{
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Subtle corner-only glow */
+.nav-list a:hover::before,
+.nav-list a:hover::after,
+.nav-list a:hover span.hud-corner{
+  filter: drop-shadow(0 0 4px rgba(80,255,170,0.7));
+}
+
+/* Text glow only (no box glow) */
+.nav-list a:hover{
+  text-shadow: 0 0 8px rgba(80,255,170,0.4);
 }
