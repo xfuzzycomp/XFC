@@ -33,8 +33,8 @@ function initMobileNav() {
 }
 
 (async function main() {
-  await loadPartial("#site-header", "/partials/header.html");
-  await loadPartial("#site-footer", "/partials/footer.html");
+  await loadPartial("#site-header", "partials/header.html");
+  await loadPartial("#site-footer", "partials/footer.html");
 
   highlightActiveNav();
   initMobileNav();
