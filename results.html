@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/ico" href="favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>XFC Tactical Analysis Terminal</title>
+
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="padding-block-500">
+      <div class="container-full bg-primary-400 mission-terminal">
+        <div class="padding-round-500">
+
+          <div class="mission-terminal-header">
+            <div>
+              <p class="mission-eyebrow">XFC Tactical Analysis Terminal</p>
+              <h1 class="fs-primary-heading fw-bold">Mission Reports</h1>
+              <p class="mission-subtitle">
+                Select a matchup to access post-combat telemetry and generated mission analysis.
+              </p>
+            </div>
+
+            <div class="mission-radar" aria-hidden="true">
+              <div class="mission-radar-ring"></div>
+              <div class="mission-radar-cross"></div>
+              <div class="mission-radar-dot"></div>
+            </div>
+          </div>
+
+          <div class="mission-control-grid">
+            <div class="mission-selector-panel">
+              <label for="report-select" class="mission-label">Mission Database</label>
+
+              <select id="report-select" class="mission-select">
+                <option value="">Select matchup...</option>
+
+                <!-- Update these paths/names to match your generated reports -->
+                <option value="reports/ABL opti-fuzzy_vs_Windows95.html"
+                        data-winner="Team Windows95 (Nexus)"
+                        data-score="3504"
+                        data-accuracy="82.02%"
+                        data-status="Complete">
+                  Team ABL opti-fuzzy vs Team Windows95 (Nexus)
+                </option>
+
+                <option value="reports/hitormissv3.0_vs_Windows95.html"
+                        data-winner="Team HitorMiss"
+                        data-score="3460"
+                        data-accuracy="75.33%"
+                        data-status="Complete">
+                  Team HitorMiss vs Team Windows95 (Nexus)
+                </option>
+				
+                <option value="reports/T.E. v2.0_vs_mopp_ciLabo.html"
+                        data-winner="Team T.E."
+                        data-score="3474"
+                        data-accuracy="77.55%"
+                        data-status="Complete">
+                  Team T.E vs Team Mopp-ciLabo
+                </option>
+				
+				<option value="reports/mopp_ciLabo_vs_Windows95.html"
+                        data-winner="Team Windows95 (Nexus)"
+                        data-score="3156"
+                        data-accuracy="80.97%"
+                        data-status="Complete">
+                  Team Mopp-ciLabo vs Team Windows95 (Nexus)
+                </option>
+				
+				<option value="reports/hitormissv3.0_vs_T.E. v2.0.html"
+                        data-winner="Team T.E."
+                        data-score="3830"
+                        data-accuracy="74.36%"
+                        data-status="Complete">
+                  Team HitorMiss vs Team T.E.
+                </option>
+				
+              </select>
+            </div>
+
+            <div class="mission-status-panel">
+              <div class="mission-status-row">
+                <span>Mission Status</span>
+                <strong id="mission-status">Awaiting Selection</strong>
+              </div>
+
+              <div class="mission-readouts">
+                <div class="mission-readout">
+                  <span>Winner</span>
+                  <strong id="mission-winner">--</strong>
+                </div>
+
+                <div class="mission-readout">
+                  <span>Mission Score</span>
+                  <strong id="mission-score">--</strong>
+                </div>
+
+                <div class="mission-readout">
+                  <span>Accuracy</span>
+                  <strong id="mission-accuracy">--</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mission-loading" id="mission-loading">
+            <span>Accessing mission log</span>
+            <div class="mission-loading-bar">
+              <div></div>
+            </div>
+          </div>
+
+          <div class="mission-report-shell">
+            <div class="mission-report-title">
+              <span>Combat Analysis Report</span>
+              <span id="mission-report-name">No report loaded</span>
+            </div>
+
+            <iframe id="report-frame" class="mission-report-frame" title="Mission report"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/includes.js" defer></script>
+
+  <script>
+    const select = document.getElementById("report-select");
+    const frame = document.getElementById("report-frame");
+
+    const statusEl = document.getElementById("mission-status");
+    const winnerEl = document.getElementById("mission-winner");
+    const scoreEl = document.getElementById("mission-score");
+    const accuracyEl = document.getElementById("mission-accuracy");
+    const loadingEl = document.getElementById("mission-loading");
+    const reportNameEl = document.getElementById("mission-report-name");
+
+    select.addEventListener("change", () => {
+      const option = select.selectedOptions[0];
+
+      if (!select.value) {
+        frame.src = "about:blank";
+        statusEl.textContent = "Awaiting Selection";
+        winnerEl.textContent = "--";
+        scoreEl.textContent = "--";
+        accuracyEl.textContent = "--";
+        reportNameEl.textContent = "No report loaded";
+        return;
+      }
+
+      loadingEl.classList.add("is-active");
+
+      statusEl.textContent = option.dataset.status || "Complete";
+      winnerEl.textContent = option.dataset.winner || "--";
+      scoreEl.textContent = option.dataset.score || "--";
+      accuracyEl.textContent = option.dataset.accuracy || "--";
+      reportNameEl.textContent = option.textContent.trim();
+
+      setTimeout(() => {
+        frame.src = select.value;
+        loadingEl.classList.remove("is-active");
+      }, 750);
+    });
+  </script>
+</body>
+</html>

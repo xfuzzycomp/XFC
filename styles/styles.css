@@ -1434,3 +1434,297 @@ body{
 .nav-list a:hover{
   text-shadow: 0 0 8px rgba(80,255,170,0.4);
 }
+
+
+/* ==========================================================
+   MISSION REPORT VIEWER
+   Tactical analysis terminal
+   ========================================================== */
+
+.mission-terminal{
+  min-height: 80vh;
+}
+
+.mission-terminal-header{
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.mission-eyebrow{
+  font-family: "Rajdhani", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: rgba(80,255,170,0.78);
+  font-size: 0.85rem;
+  margin-bottom: 0.45rem;
+}
+
+.mission-subtitle{
+  max-width: 760px;
+  color: rgba(255,255,255,0.78);
+}
+
+.mission-radar{
+  position: relative;
+  width: 132px;
+  height: 132px;
+  border-radius: 50%;
+  border: 1px solid rgba(80,255,170,0.38);
+  box-shadow:
+    0 0 30px rgba(80,255,170,0.12),
+    inset 0 0 26px rgba(80,255,170,0.08);
+  background:
+    radial-gradient(circle, rgba(80,255,170,0.12) 0 2px, transparent 3px),
+    radial-gradient(circle, transparent 0 38px, rgba(80,255,170,0.18) 39px, transparent 40px),
+    radial-gradient(circle, transparent 0 62px, rgba(80,255,170,0.14) 63px, transparent 64px);
+}
+
+.mission-radar-ring{
+  position: absolute;
+  inset: 18px;
+  border-radius: 50%;
+  border: 1px dashed rgba(80,255,170,0.45);
+  animation: mission-radar-rotate 14s linear infinite;
+}
+
+.mission-radar-cross::before,
+.mission-radar-cross::after{
+  content: "";
+  position: absolute;
+  background: rgba(80,255,170,0.25);
+  box-shadow: 0 0 10px rgba(80,255,170,0.18);
+}
+
+.mission-radar-cross::before{
+  left: 50%;
+  top: 12px;
+  width: 1px;
+  height: calc(100% - 24px);
+}
+
+.mission-radar-cross::after{
+  top: 50%;
+  left: 12px;
+  height: 1px;
+  width: calc(100% - 24px);
+}
+
+.mission-radar-dot{
+  position: absolute;
+  left: 60%;
+  top: 38%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(80,255,170,0.85);
+  box-shadow: 0 0 18px rgba(80,255,170,0.55);
+}
+
+@keyframes mission-radar-rotate{
+  from{ transform: rotate(0deg); }
+  to{ transform: rotate(360deg); }
+}
+
+.mission-control-grid{
+  display: grid;
+  grid-template-columns: minmax(260px, 420px) 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.mission-selector-panel,
+.mission-status-panel,
+.mission-report-shell{
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-top: 1px solid rgba(80,255,170,0.24);
+  background:
+    radial-gradient(600px 180px at 12% 0%, rgba(255,255,255,0.06), transparent 55%),
+    linear-gradient(180deg, rgba(5,7,12,0.82), rgba(2,3,6,0.76));
+  box-shadow:
+    0 16px 46px rgba(0,0,0,0.55),
+    0 0 22px rgba(80,255,170,0.07);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.mission-selector-panel::before,
+.mission-status-panel::before,
+.mission-report-shell::before{
+  content: "";
+  position: absolute;
+  inset: 9px;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(80,255,170,0.35), rgba(80,255,170,0.35)) left top/16px 2px no-repeat,
+    linear-gradient(rgba(80,255,170,0.35), rgba(80,255,170,0.35)) left top/2px 16px no-repeat,
+    linear-gradient(rgba(80,255,170,0.35), rgba(80,255,170,0.35)) right top/16px 2px no-repeat,
+    linear-gradient(rgba(80,255,170,0.35), rgba(80,255,170,0.35)) right top/2px 16px no-repeat;
+  opacity: 0.6;
+}
+
+.mission-label{
+  display: block;
+  font-family: "Rajdhani", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(80,255,170,0.78);
+  margin-bottom: 0.6rem;
+}
+
+.mission-select{
+  width: 100%;
+  padding: 0.8rem 1rem;
+  color: rgba(255,255,255,0.95);
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(80,255,170,0.35);
+  border-radius: 0.75rem;
+  outline: none;
+  font-family: "Rajdhani", system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  box-shadow: inset 0 0 14px rgba(80,255,170,0.06);
+}
+
+.mission-select:focus{
+  border-color: rgba(80,255,170,0.65);
+  box-shadow:
+    0 0 20px rgba(80,255,170,0.14),
+    inset 0 0 14px rgba(80,255,170,0.08);
+}
+
+.mission-status-row{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-family: "Rajdhani", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.mission-status-row strong{
+  color: rgba(80,255,170,0.9);
+  text-shadow: 0 0 14px rgba(80,255,170,0.22);
+}
+
+.mission-readouts{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.mission-readout span{
+  display: block;
+  font-family: "Rajdhani", system-ui, sans-serif;
+  color: rgba(255,255,255,0.58);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.82rem;
+}
+
+.mission-readout strong{
+  display: block;
+  margin-top: 0.25rem;
+  font-size: clamp(1.1rem, 2vw, 1.65rem);
+  color: rgba(255,255,255,0.95);
+  text-shadow: 0 0 12px rgba(80,255,170,0.12);
+}
+
+.mission-loading{
+  display: none;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(80,255,170,0.20);
+  border-radius: 12px;
+  background: rgba(0,0,0,0.32);
+  font-family: "Rajdhani", system-ui, sans-serif;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(80,255,170,0.8);
+}
+
+.mission-loading.is-active{
+  display: block;
+}
+
+.mission-loading-bar{
+  margin-top: 0.5rem;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.mission-loading-bar div{
+  width: 45%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(80,255,170,0.85), transparent);
+  box-shadow: 0 0 18px rgba(80,255,170,0.45);
+  animation: mission-loading-scan 0.75s ease-in-out infinite;
+}
+
+@keyframes mission-loading-scan{
+  from{ transform: translateX(-110%); }
+  to{ transform: translateX(250%); }
+}
+
+.mission-report-shell{
+  margin-top: 1rem;
+  padding: 0;
+}
+
+.mission-report-title{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  font-family: "Rajdhani", system-ui, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(80,255,170,0.82);
+}
+
+.mission-report-title span:last-child{
+  color: rgba(255,255,255,0.72);
+  text-align: right;
+}
+
+.mission-report-frame{
+  width: 100%;
+  height: 80vh;
+  border: 0;
+  background: #05060b;
+  display: block;
+}
+
+@media (max-width: 54em){
+  .mission-terminal-header,
+  .mission-control-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .mission-radar{
+    width: 110px;
+    height: 110px;
+    justify-self: center;
+  }
+
+  .mission-readouts{
+    grid-template-columns: 1fr;
+  }
+
+  .mission-report-title{
+    flex-direction: column;
+  }
+
+  .mission-report-frame{
+    height: 70vh;
+  }
+}
